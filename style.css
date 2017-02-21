@@ -1,0 +1,56 @@
+body {
+    text-align: center;
+    background-color: #a9ff84;
+    font-family: Helvetica;
+}
+
+
+h1 {
+    color: #d1f9c0;
+    text-shadow: -1px 0 gray, 0 1px gray, 1px 0 gray, 0 -1px gray, 1px 1px 2px black;
+}
+
+table {
+    margin: auto;
+    border: 1px solid gray;
+    /*border-collapse: collapse;*/
+    width: 600px;
+}
+
+.taust {
+    background-color: white;
+    width: 700px;
+    height: 400px;
+    margin: 0 auto;
+    border: 1px solid gray;
+}
+
+.logimine {
+    margin-left: 30px;
+    width: 150px;
+    
+    
+}
+
+.logisisse {
+    font-size: 20px;
+    text-align: left;
+    margin-left: 100px;
+    color: #d1f9c0;
+    text-shadow: -1px 0 gray, 0 1px gray, 1px 0 gray, 0 -1px gray, 1px 1px 2px black;
+}
+
+.registreerumine {
+    margin-right: 30px;
+    width: 300px;
+    
+}
+
+.registreeru {
+    font-size: 20px;
+    text-align: right;
+    margin-right: 100px;
+    color: #d1f9c0;
+    text-shadow: -1px 0 gray, 0 1px gray, 1px 0 gray, 0 -1px gray, 1px 1px 2px black;
+    
+}
