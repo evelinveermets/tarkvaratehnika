@@ -1,7 +1,31 @@
 body {
     text-align: center;
-    background-color: #a9ff84;
+    background-color: #f5fced;
     font-family: Helvetica;
+}
+
+a {
+	background: #dde8d0;
+    color: #000a1a;
+	text-decoration: none;
+	padding: 8px;
+	padding-left: 20px;
+	padding-right: 20px;
+	border-radius: 9px;
+    font-size: 15px
+	
+}
+
+a:hover {
+	background: #eee;
+    color:white;
+
+}
+
+a:active {
+	background:#effce0 ;
+	color: white;
+
 }
 
 
@@ -15,6 +39,7 @@ table {
     border: 1px solid gray;
     /*border-collapse: collapse;*/
     width: 600px;
+    
 }
 
 .taust {
@@ -27,7 +52,10 @@ table {
 
 .logimine {
     margin-left: 30px;
-    width: 150px;
+    margin-right: 30px;
+    width: 250px;
+    display: inline-block;
+    float: left;
     
     
 }
@@ -42,7 +70,10 @@ table {
 
 .registreerumine {
     margin-right: 30px;
+    margin-left: 30px;
     width: 300px;
+    display: inline-block;
+    float: left;
     
 }
 
@@ -53,4 +84,12 @@ table {
     color: #d1f9c0;
     text-shadow: -1px 0 gray, 0 1px gray, 1px 0 gray, 0 -1px gray, 1px 1px 2px black;
     
+}
+
+.taust-ankeet {
+    background-color: white;
+    width: 700px;
+    height: 1200px;
+    margin: 0 auto;
+    border: 1px solid gray;
 }
