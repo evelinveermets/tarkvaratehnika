@@ -61,9 +61,10 @@ table {
 }
 
 .logisisse {
+    padding-right: 200px;
     font-size: 20px;
     text-align: left;
-    margin-left: 100px;
+    margin-bottom: 100px;
     color: #d1f9c0;
     text-shadow: -1px 0 gray, 0 1px gray, 1px 0 gray, 0 -1px gray, 1px 1px 2px black;
 }
@@ -78,9 +79,9 @@ table {
 }
 
 .registreeru {
+    margin-right: auto;
     font-size: 20px;
     text-align: right;
-    margin-right: 100px;
     color: #d1f9c0;
     text-shadow: -1px 0 gray, 0 1px gray, 1px 0 gray, 0 -1px gray, 1px 1px 2px black;
     
