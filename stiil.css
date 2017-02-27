@@ -1,0 +1,43 @@
+body {
+    text-align: center;
+    background-image: url("taust.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;   
+    text-align: 0 auto;
+}
+
+.pealehenimi{
+    color: white;
+    direction: rtl;
+    position:absolute; 
+    TOP: 250px; RIGHT:150px; WIDTH:50px; HEIGHT:50px;
+    font-family: 'Tangerine', serif;
+    font-size: 100px;
+    text-shadow: 4px 4px 4px #aaa;
+}
+
+.pealehenupp1{
+    color: white;
+    background-color: Transparent;
+    border: none;
+    outline:none;
+    cursor:pointer;
+    position:absolute; 
+    TOP: 370px; RIGHT:150px;
+    font-family: 'Tangerine', serif;
+    font-size: 35px;
+    text-shadow: 4px 4px 4px #aaa;
+}
+
+.pealehenupp2{
+    color: white;
+    background-color: Transparent;
+    border: none;
+    outline:none;
+    cursor:pointer;
+    position:absolute; 
+    TOP: 420px; RIGHT:150px;
+    font-family: 'Tangerine', serif;
+    font-size: 35px;
+    text-shadow: 4px 4px 4px #aaa;
+}
