@@ -41,3 +41,15 @@ body {
     font-size: 35px;
     text-shadow: 4px 4px 4px #aaa;
 }
+
+a:hover {
+    background:#bffc8a;
+	color: white;
+
+}
+
+a:active {
+	background: #e9ffd6;
+    color:#5c8e30;
+
+}
