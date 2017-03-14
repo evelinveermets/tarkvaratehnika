@@ -1,18 +1,19 @@
 body {
     text-align: center;
-    background-color: #f5fced;
     font-family: Helvetica;
+    background-image: url("taust2.4.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;   
+    text-align: 0 auto;
+    color: #076032;
 }
 
 a {
-	background: #dde8d0;
-    color: #000a1a;
 	text-decoration: none;
-	padding: 8px;
-	padding-left: 20px;
-	padding-right: 20px;
-	border-radius: 9px;
-    font-size: 15px
+	padding: 8px;	
+	color: #076032;
+    	font-size: 13px;
+    	margin: 20px;
 	
 }
 
@@ -30,14 +31,14 @@ a:active {
 
 
 h1 {
-    color: #d1f9c0;
     text-shadow: -1px 0 gray, 0 1px gray, 1px 0 gray, 0 -1px gray, 1px 1px 2px black;
+    color: #88cc14;
+    font-family: 'Tangerine', serif;
+    font-size: 40px;
 }
 
 table {
     margin: auto;
-    border: 1px solid gray;
-    /*border-collapse: collapse;*/
     width: 600px;
     
 }
@@ -47,7 +48,6 @@ table {
     width: 700px;
     height: 400px;
     margin: 0 auto;
-    border: 1px solid gray;
 }
 
 .logimine {
@@ -57,7 +57,6 @@ table {
     display: inline-block;
     float: left;
     
-    
 }
 
 .logisisse {
@@ -65,8 +64,8 @@ table {
     font-size: 20px;
     text-align: left;
     margin-bottom: 100px;
-    color: #d1f9c0;
     text-shadow: -1px 0 gray, 0 1px gray, 1px 0 gray, 0 -1px gray, 1px 1px 2px black;
+    color: #88cc14;
 }
 
 .registreerumine {
@@ -82,19 +81,44 @@ table {
     margin-right: auto;
     font-size: 20px;
     text-align: right;
-    color: #d1f9c0;
+    color: #88cc14;
     text-shadow: -1px 0 gray, 0 1px gray, 1px 0 gray, 0 -1px gray, 1px 1px 2px black;
     
 }
 
 .taust-ankeet {
-    background-color: white;
-    width: 700px;
-    height: 1200px;
     margin: 0 auto;
-    border: 1px solid gray;
 }
 img{
     width: 300px;
     height:200px
+}
+
+ul {
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+    overflow: hidden;
+    background-color: #b2e064;
+    height: 60px;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-size: 20px;
+    padding-right: 40px;
+    padding-left: 70px;
+    font-family: 'Tangerine', serif;
+    font-size: 30px;
+}
+
+li a:hover {
+    background-color: #cdf785;
 }
