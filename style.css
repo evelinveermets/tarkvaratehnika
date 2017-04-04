@@ -122,6 +122,11 @@ li a {
 li a:hover {
     background-color: #cdf785;
 }
+
+.keskel {
+    text-align: left;
+    margin-left: 600px;
+}
 * {box-sizing:border-box}
 
 /* Slideshow container */
