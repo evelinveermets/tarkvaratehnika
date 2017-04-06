@@ -1,0 +1,83 @@
+<template>
+<!doctype html>
+<html>
+    <head>
+    <meta charset="UTF-8">
+        <!--<link rel="stylesheet"  type="text/css" href="style.css">-->
+        <require from="style.css"></require>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+    <title>Personaalne toitumis- ja treeningkava veebist!</title>
+    </head>
+    <body>
+    <div class="taust">
+        <h1 class="pealkiri">Tere tulemast!</h1><br>
+        <span class="logisisse">Logi sisse</span>        
+        <span class="registreeru">Registreeru kasutajaks</span><br><br>
+    
+    <div>
+        <div class="logimine">
+            <div>E-mail: <input type="email" name="email" placeholder="Sisesta meiliaadress"></div><br>
+            <div>Parool: <input type="password" name="password" placeholder="**********"></div><br>
+            <input type="submit" name="login_btn" value="Logi sisse"><br><br>
+            <span class="unustasidparooli">
+            <a href="paroolitaastamine.html">Unustasid parooli?</a>
+            </span>
+        </div>
+        
+
+         
+        <div class="registreerumine">
+                <div data-toggle="tooltip" title="E-maili aadress peab olema kujul example@example.com">E-mail: <input type="email" name="email"></div><br>
+             
+                <div data-toggle="tooltip" title="Parool peab olema vähemalt 8 tähemärki pikk">Parool: <input type="password" name="password"></div><br>
+            
+                <div>Korda parooli: <input type="password" name="password"></div><br>
+            
+                <div>Sugu: <input type="radio" name="gender" value="male" checked> Mees
+                <input type="radio" name="gender" value="female"> Naine<br></div><br>
+            
+                <div>Sünnipäev: <input type="date" name="sunnipaev"></div><br>
+                    
+            
+                <input type="checkbox" name="reeglid" value="noustumine"> Olen tutvunud ning nõustun <a type="button"  data-toggle="modal" data-target="#newModal">reeglitega</a><br><br>
+                    
+                <input type="submit" name="register_btn" value="Registreeru">
+        </div>
+    </div>
+        
+        <div id="newModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Kasutamistingimused</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>1. reegel.</p>
+                        <p>2. reegel.</p>
+                        <p>3. reegel.</p>
+                        <p>4. reegel.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div><br>
+            </div>
+        </div>
+        
+        <div class="tagasi">
+            <a href="pealeht.html">Tagasi avalehele</a>
+        </div>
+        
+    </div>
+    <script>
+    $(document).ready(function(){
+        $('[data-toggle="tooltip"]').tooltip();   
+    });
+    </script>
+    </body>
+
+</html>
+</template>

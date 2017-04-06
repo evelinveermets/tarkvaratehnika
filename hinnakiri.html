@@ -11,7 +11,7 @@
 <body>
     <div class="taust-ankeet">
     <div>
-        <h1>Hinnakiri</h1>
+        <h1 class="pealkiri">Hinnakiri</h1>
      	<ul>
         <li><a href="sisselogitud.html">Avaleht</a></li>
         <li><a href="minukonto.html">Minu konto</a></li>
@@ -31,25 +31,27 @@
 			<td>30€</td>
 			<td>Toitumiskava</td>
 			<td>Sinu ankeedi põhjal koostatud personaalne toitumiskava, mis arvestab sinu vajadustega.</td>
-            <td><input type="radio" name="valik" value="toitumiskava" checked><br></td>
+            <td><input id="toitumiskava" type="radio" name="valik" value="toitumiskava" checked><br></td>
 		</tr>
 		<tr>
 			<td>30€</td>
 			<td>Treeningkava</td>
 			<td>Treeningkava, mis on koostatud sertifitseeritud treeneri poolt, arvestades sinu eesmärke, tugevusi ja nõrkusi ning varasemat treeningkogemust.</td>
-            <td><input type="radio" name="valik" value="treeningkava"><br></td>
+            <td><input id="treeningkava" type="radio" name="valik" value="treeningkava"><br></td>
 		</tr>
 		<tr>
 			<td>50€</td>
 			<td>Toitumiskava + treeningkava</td>
             <td>Ideaalne kombinatsioon personaalsest treening- ning toitumiskavast, ...</td>
-            <td><input type="radio" name="valik" value="molemad"></td>
+            <td><input id="molemad" type="radio" name="valik" value="molemad"></td>
 		</tr>
 	</table> <br>
-    <input type="submit" value="Kinnita">
+    <input id="kinnitaKava" type="submit" value="Kinnita">
 	<a href="treeningkavaankeet.html">Treeningkava</a>
    	<a href="toitumiskavaankeet.html">Toitumiskava</a>
     </div>
+    <script src="app.js"></script>
+
 </body>
 
 </html>
