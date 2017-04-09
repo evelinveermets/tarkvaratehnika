@@ -1,12 +1,8 @@
-package ttu.tteh.user;
-
-import lombok.Getter;
-import lombok.Setter;
-import java.util.List;
+package tteh.user;
 
 import org.springframework.stereotype.Service;
 
-import ttu.tteh.car.Car;
+import java.util.List;
 
 @Service
 public class UserService {
