@@ -1,0 +1,8 @@
+spring:
+   datasource:
+      url: jdbc:mariadb://localhost/myapp
+      username: root
+      password: Koll221
+   jpa:
+      hibernate:
+         ddl-auto: update
