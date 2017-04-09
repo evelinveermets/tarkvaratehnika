@@ -15,6 +15,8 @@ export class App {
           { route: 'minukonto', name: 'minukonto', moduleId: 'minukonto/minukonto',   nav: true },
           { route: 'treenerid', name: 'treenerid', moduleId: 'treenerid/treenerid',   nav: true },
           { route: 'paroolitaastamine', name: 'paroolitaastamine', moduleId: 'paroolitaastamine/paroolitaastamine',   nav: true },
+          { route: 'meist', name: 'meist', moduleId: 'meist/meist',   nav: true },
+          { route: 'people', name: 'people', moduleId: 'people/people',   nav: true }
         ]);
   }
     
