@@ -14,40 +14,36 @@
         <span class="registreeru">Registreeru kasutajaks</span><br><br>
     
     <div>
-        <form>
-        <div class="logimine">
-            <div>E-mail: <input type="email" name="email" placeholder="Sisesta meiliaadress"></div><br>
-            <div>Parool: <input type="password" name="password" placeholder="**********"></div><br>
+        <form id="loginform" submit.delegate="login()" class="logimine">
+            <div>E-mail: <input type="email" id="logEmail" name="logEmail" placeholder="Sisesta meiliaadress" required value.bind="userData.logEmail"></div><br>
+            <div>Parool: <input type="password" id= "logPassword" name="logPassword" placeholder="**********" required value.bind="userData.logPassword"></div><br>
             <input type="submit" name="login_btn" value="Logi sisse"><br><br>
+
             <span class="unustasidparooli">
             <a href="#/paroolitaastamine">Unustasid parooli?</a>
             </span>
-        </div>
         </form>
-        
 
-        <form id="sisselogimiseform" submit.delegate="addUser()">
-        <div class="registreerumine">
-                <div data-toggle="tooltip" title="E-maili aadress peab olema kujul example@example.com">E-mail: <input type="email" name="email"></div><br>
-             
-                <div data-toggle="tooltip" title="Parool peab olema vähemalt 8 tähemärki pikk">Parool: <input type="password" name="password"></div><br>
+        <form id="registrationform" submit.delegate="addUser()" class="registreerumine">
+                <div data-toggle="tooltip" title="E-maili aadress peab olema kujul example@example.com">E-mail: <input type="email" id="email" name="email" required value.bind="userData.email"></div><br>
+
+                <div data-toggle="tooltip" title="Parool peab olema vähemalt 8 tähemärki pikk">Parool: <input type="password" id="password" name="password" required value.bind="userData.password"></div><br>
             
-                <div>Korda parooli: <input type="password" name="password"></div><br>
+                <div>Korda parooli: <input type="password" id="passwordConf" name="passwordConf" required value.bind="userData.passwordConf"></div><br>
             
-                <div>Eesnimi: <input type="text" name="eesnimi"></div><br>
+                <div>Eesnimi: <input type="text" id="firstname" name="firstname" required value.bind="userData.firstname"></div><br>
             
-                <div>Perekonnanimi: <input type="text" name="perekonnanimi"></div><br>
+                <div>Perekonnanimi: <input type="text" id="lastname" name="lastname" required value.bind="userData.lastname"></div><br>
             
                 <div>Sugu: <input type="radio" name="gender" value="male" checked> Mees
                 <input type="radio" name="gender" value="female"> Naine<br></div><br>
             
-                <div>Sünnipäev: <input type="date" name="sunnipaev"></div><br>
+                <div>Sünnipäev: <input type="date" id="birthday" name="birthday"></div><br>
                     
             
-                <input type="checkbox" name="reeglid" value="noustumine"> Olen tutvunud ning nõustun <a data-toggle="modal" data-target="#newModal">reeglitega</a><br><br>
+                <input type="checkbox" name="reeglid" value="noustumine"> Olen tutvunud ning nõustun <a type="button"  data-toggle="modal" data-target="#newModal">reeglitega</a><br><br>
                     
                 <input type="submit" name="register_btn" value="Registreeru">
-        </div>
         </form>
     </div>
         
@@ -78,15 +74,12 @@
     </div>
     <script>
     $(document).ready(function(){
-        $('[data-toggle="tooltip"]').tooltip();
-        
+        $('[data-toggle="tooltip"]').tooltip();   
     });
     </script>
-        
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="src/bootstrap/js/bootstrap.min.js"></script>
-
     </body>
 
 </html>
