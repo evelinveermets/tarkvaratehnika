@@ -1,4 +1,4 @@
-package tteh.user;
+package ttu.tteh.trainer;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -11,21 +11,17 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
-public class User {
-	@Id
-	@GeneratedValue
-	long id;
+public class Trainer {
+    @Id
+    @GeneratedValue
+    long id;
     @Column(unique=true)
-	String email;
-	String password;
+    String email;
+    String password;
     String firstname;
     String lastname;
     String gender;
     Date birthday;
-
-
-	@OneToMany(mappedBy="owner", cascade=CascadeType.ALL)
-	List<Purchase> purchases;
-
-	
+    @OneToMany(mappedBy="trainer", cascade=CascadeType.ALL)
+    List<Purchase> purchases;
 }

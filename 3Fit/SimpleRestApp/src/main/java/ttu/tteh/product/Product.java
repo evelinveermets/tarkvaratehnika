@@ -1,4 +1,4 @@
-package tteh.product;
+package ttu.tteh.product;
 
 import lombok.Getter;
 import lombok.Setter;

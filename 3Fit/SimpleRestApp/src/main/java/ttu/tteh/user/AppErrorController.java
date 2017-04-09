@@ -1,4 +1,4 @@
-package tteh.user;
+package ttu.tteh.user;
 
 import org.springframework.boot.autoconfigure.web.ErrorAttributes;
 import org.springframework.boot.autoconfigure.web.ErrorController;

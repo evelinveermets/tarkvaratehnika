@@ -5,6 +5,7 @@ export class Sisselogimine {
 
     addUser(){
         let client = new HttpClient();
+      this.userData.gender = document.getElementById("registrationform").gender.value;
         client.fetch('http://localhost:8080/users/add',{
             'method': "POST",
             'body': json(this.userData)
@@ -15,4 +16,5 @@ export class Sisselogimine {
         });
         console.log("Method executed!")
     
+    }
 }

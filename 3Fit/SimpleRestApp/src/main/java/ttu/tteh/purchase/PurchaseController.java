@@ -1,5 +1,6 @@
-package tteh.purchase;
+package ttu.tteh.purchase;
 
+import org.springframework.web.bind.annotation.*;
 import ttu.tteh.requests.CreatePurchaseRequest;
 import ttu.tteh.trainer.Trainer;
 import ttu.tteh.user.User;
@@ -24,7 +25,7 @@ public class PurchaseController {
         Trainer trainer = request.getTrainer();
         purchase.setOwner(owner);
         purchase.setTrainer(trainer);
-        purchase.setAnswers(request.getAnswers);
-        return purchaseService.save(purchase);
+        purchase.setAnswers(request.getAnswers());
+        return purchaseService.addPurchase(purchase);
     }
 }

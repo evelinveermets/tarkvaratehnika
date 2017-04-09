@@ -1,10 +1,12 @@
-package tteh.purchase;
+package ttu.tteh.purchase;
 
+import org.springframework.stereotype.Service;
 import java.util.List;
 
 /**
  * Created by Ly Tempel on 09.04.2017.
  */
+@Service
 public class PurchaseService {
     private PurchaseRepository purchaseRepository;
 

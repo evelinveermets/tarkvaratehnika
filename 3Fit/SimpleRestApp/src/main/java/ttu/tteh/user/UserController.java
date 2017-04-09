@@ -1,8 +1,7 @@
-package tteh.user;
+package ttu.tteh.user;
 
 import org.springframework.web.bind.annotation.*;
 import ttu.tteh.requests.LoginRequest;
-
 import java.util.List;
 import java.util.Optional;
 

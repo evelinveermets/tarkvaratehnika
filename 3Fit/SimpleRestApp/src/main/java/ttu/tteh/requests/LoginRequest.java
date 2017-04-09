@@ -1,4 +1,4 @@
-package tteh.requests;
+package ttu.tteh.requests;
 
 import lombok.Getter;
 import lombok.Setter;
