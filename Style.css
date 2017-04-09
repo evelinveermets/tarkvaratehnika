@@ -1,0 +1,190 @@
+h1 {
+  text-align: center;
+  color: white;
+}
+
+h2 {
+  text-align: center;
+  color: white;
+}
+h3 {
+  text-align: center;
+  color: white;
+}
+
+p {
+    text-align: center;
+    color: white;
+}
+.box{
+    text-align: center;
+    color: #333;
+    position: fixed;
+    top: 173px;
+    right: 20px;
+}
+
+.box1{
+    text-align: center;
+    color: #333;
+    position: fixed;
+    top: 558px;
+    right: 20px;
+}
+.box2{
+    text-align: center;
+    color: #333;
+    position: fixed;
+    top: 378px;
+    left: 100px;
+}
+.box3{
+    text-align: center;
+    color: #333;
+    position: fixed;
+    top: 378px;
+    left: 550px;
+}
+.box4{
+    text-align: center;
+    color: #333;
+    position: fixed;
+    top: 378px;
+    right: 100px;
+}
+
+.button{
+    text-align: center;
+    color: #333;
+    position: fixed;
+
+}
+
+body {
+  background-image: url("taust_copy.jpg");
+  background-repeat: no-repeat;
+  background-size:100% 50%;
+}
+
+.textbox { 
+    background-color: aquamarine;
+    border: 1px solid #848484;
+    outline:0; 
+    height:385px; 
+    width: 385px; 
+    position: fixed;
+    top: 45px;
+    right: 0;
+} 
+
+.textbox1 { 
+    background-color: lightgreen;
+    border: 1px dotted #000000; 
+    outline:0; 
+    height:385px; 
+    width: 385px;
+    position: fixed;
+    top: 425px;
+    right: 0;
+} 
+
+.textbox2 { 
+    background-color: lightgreen;
+    border: 1px dotted #000000; 
+    outline:0; 
+    height:385px; 
+    width: 385px;
+    position: fixed;
+    top: 250px;
+    left: 60px;
+} 
+.textbox3 { 
+    background-color: lightgreen;
+    border: 1px dotted #000000; 
+    outline:0; 
+    height:385px; 
+    width: 385px;
+    position: fixed;
+    top: 250px;
+    left: 525px;
+} 
+.textbox4 { 
+    background-color: lightgreen;
+    border: 1px dotted #000000; 
+    outline:0; 
+    height:385px; 
+    width: 385px;
+    position: fixed;
+    top: 250px;
+    right: 60px;
+} 
+body {margin:0;}
+
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+li {
+    float: right;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: #111;
+}
+
+.active {
+    background-color: #4CAF50;
+}
+
+.scroll-down {
+  opacity: 1;
+  -webkit-transition: all .5s ease-in 3s;
+  transition: all .5s ease-in 3s;
+}
+
+.scroll-down {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  margin-left: -16px;
+  display: block;
+  width: 32px;
+  height: 32px;
+  border: 2px solid #FFF;
+  background-size: 14px auto;
+  border-radius: 50%;
+  z-index: 2;
+  -webkit-animation: bounce 2s infinite 2s;
+  animation: bounce 2s infinite 2s;
+  -webkit-transition: all .2s ease-in;
+  transition: all .2s ease-in;
+}
+
+.scroll-down:before {
+    position: absolute;
+    top: calc(50% - 8px);
+    left: calc(50% - 6px);
+    transform: rotate(-45deg);
+    display: block;
+    width: 12px;
+    height: 12px;
+    content: "";
+    border: 2px solid white;
+    border-width: 0px 0 2px 2px;
+}
