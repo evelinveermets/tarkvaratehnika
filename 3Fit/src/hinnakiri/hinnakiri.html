@@ -35,7 +35,6 @@
             eesmärkide ja vajadustega. Toitumisspetsialist
             koostab Sulle kava, mis on kooskõlas Sinu soovidega
             ning arvestab ka erinevate iseärasustega!</td>
-            <td><input id="toitumiskava" type="radio" name="valik" value="toitumiskava" checked><br></td>
 		</tr>
 		<tr>
 			<td>35€</td>
@@ -45,7 +44,6 @@
             treeningute sageduse ning eesmärgi!
             Sõltuvalt eesmärgist on ühe treeningkava
             kestuseks 2-3 kuud.</td>
-            <td><input id="treeningkava" type="radio" name="valik" value="treeningkava"><br></td>
 		</tr>
 		<tr>
 			<td>50€</td>
@@ -54,15 +52,20 @@
             kes vajavad oma eesmärkideni jõudmisel täieliku
             pühenudmist. Kavade koostamisel arvestatakse
             kõigi Sinu soovide ning vajadustega.</td>
-            <td><input id="molemad" type="radio" name="valik" value="molemad"></td>
+            
+            
 		</tr>
 	</table> <br>
-    <input id="kinnitaKava" type="submit" value="Kinnita">
-	<a href="#/treeningkavaankeet">Treeningkava</a>
-   	<a href="#/toitumiskavaankeet">Toitumiskava</a>
     </div>
     <script src="app.js"></script>
-
+    <form role = "form" submit.delegate = "submit()">
+    <label repeat.for = "option of options">
+         <input type = "radio" name = "myOptions" 
+            model.bind = "option" checked.bind = "$parent.selectedOption"/>
+            ${option.text}
+    </label><br/>	
+    <button type = "submit">Vali kava</button>
+   </form>
 </body>
 
 </html>
