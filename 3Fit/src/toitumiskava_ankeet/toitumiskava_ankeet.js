@@ -1,4 +1,4 @@
-export class Pealeht {
+export class Toitumiskavaankeet {
     constructor() {
         this.message = "Testing..."
     }

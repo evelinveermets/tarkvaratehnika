@@ -1,4 +1,4 @@
-export class Home {
+export class Hinnakiri {
     constructor() {
         this.message = "Testing..."
     }

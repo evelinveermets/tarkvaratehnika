@@ -1,4 +1,4 @@
-export class Home {
+export class Tellikava {
     constructor() {
         this.message = "Testing..."
     }
