@@ -1,0 +1,72 @@
+<template>
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Personaalne toitumis- ja treeningkava veebist!</title>
+    <link rel="stylesheet" href="src/css/style.css" style="text/css">
+    <link rel="stylesheet" type="text/css"
+          href="https://fonts.googleapis.com/css?family=Tangerine">
+</head>    
+    
+<body>
+    <div class="taust-ankeet">
+    <div>
+        <h1 class="pealkiri">Hinnakiri</h1>
+     	<ul>
+        <li><a href="#/avaleht">Avaleht</a></li>
+        <li><a href="#/minukonto">Minu konto</a></li>
+        <li><a href="#/treenerid">Treenerid</a></li>
+        <li><a href="#/hinnakiri">Telli kava</a></li>
+        <li><a href="#/pealeht">Logi välja</a></li>
+        </ul><br>
+    </div>
+    <br>Vali omale sobiv pakett:<br><br>  
+    <table>
+		<tr>
+			<th>Hind</th>
+			<th>Paketi nimi</th>
+			<th>Mida sisaldab</th>
+		</tr>
+		<tr>
+			<td>35€</td>
+			<td>Toitumiskava</td>
+			<td>Toitumiskava juures arvestatake Sinu
+            eesmärkide ja vajadustega. Toitumisspetsialist
+            koostab Sulle kava, mis on kooskõlas Sinu soovidega
+            ning arvestab ka erinevate iseärasustega!</td>
+		</tr>
+		<tr>
+			<td>35€</td>
+			<td>Treeningkava</td>
+			<td>Treeningkava juures saad ise valida, kas soovid
+            treenida kodus või jõusaalis, määrata ise
+            treeningute sageduse ning eesmärgi!
+            Sõltuvalt eesmärgist on ühe treeningkava
+            kestuseks 2-3 kuud.</td>
+		</tr>
+		<tr>
+			<td>50€</td>
+			<td>Toitumiskava + treeningkava</td>
+            <td>Treening- ja toitumiskava on parim valik neile,
+            kes vajavad oma eesmärkideni jõudmisel täieliku
+            pühenudmist. Kavade koostamisel arvestatakse
+            kõigi Sinu soovide ning vajadustega.</td>
+            
+            
+		</tr>
+	</table> <br>
+    </div>
+    <script src="app.js"></script>
+    <form role = "form" submit.delegate = "submit()">
+    <label repeat.for = "option of options">
+         <input type = "radio" name = "myOptions" 
+            model.bind = "option" checked.bind = "$parent.selectedOption"/>
+            ${option.text}
+    </label><br/>	
+    <button type = "submit">Vali kava</button>
+   </form>
+</body>
+
+</html>
+</template>
