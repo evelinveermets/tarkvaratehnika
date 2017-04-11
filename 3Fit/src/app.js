@@ -16,7 +16,14 @@ export class App {
           { route: 'treenerid', name: 'treenerid', moduleId: 'treenerid/treenerid',   nav: true },
           { route: 'paroolitaastamine', name: 'paroolitaastamine', moduleId: 'paroolitaastamine/paroolitaastamine',   nav: true },
           { route: 'meist', name: 'meist', moduleId: 'meist/meist',   nav: true },
-          { route: 'people', name: 'people', moduleId: 'people/people',   nav: true }
+          { route: 'people', name: 'people', moduleId: 'people/people',   nav: true },
+          { route: 'hinnakiri', name: 'hinnakiri', moduleId: 'hinnakiri/hinnakiri',   nav: true },
+          { route: 'treeningkavaankeet', name: 'treeningkavaankeet', moduleId: 'treeningkavaankeet/treeningkavaankeet',   nav: true },
+          { route: 'toitumiskavaankeet', name: 'toitumiskavaankeet', moduleId: 'toitumiskavaankeet/toitumiskavaankeet',   nav: true },
+          { route: 'treeningtoitumiskavaankeet', name: 'treeningtoitumiskavaankeet', moduleId: 'treeningtoitumiskavaankeet/treeningtoitumiskavaankeet',   nav: true },
+          { route: 'treener_avaleht', name: 'treener_avaleht', moduleId: 'treener_avaleht/treener_avaleht',   nav: true },
+          { route: 'treener_minukonto', name: 'treener_minukonto', moduleId: 'treener_minukonto/treener_minukonto',   nav: true },
+          { route: 'treener_tellijad', name: 'treener_tellijad', moduleId: 'treener_tellijad/treener_tellijad',   nav: true }
         ]);
   }
     
