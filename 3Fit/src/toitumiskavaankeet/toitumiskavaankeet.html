@@ -9,72 +9,72 @@
     <body>
     <div class="taust-ankeet">
         <h1 class="pealkiri">Toitumiskava tellimise ankeet</h1>
-    <form>
+        <h4> Toitumiskava juures arvestatake Sinu<br> eesmärkide ja vajadustega. Toitumisspetsialist
+         <br> koostab Sulle kava, mis on kooskõlas Sinu soovidega
+          <br> ning arvestab ka erinevate iseärasustega!</h4>
+    <form id="nutritionform" submit.delegate="addNutritionQuestions()">
   <table>
     <tr>
-      <td align="right">Palun sisestage oma kaal: </td>
-      <td align="left"> <textarea name="message" rows="1" cols="4"></textarea></td>
+      <td align="right">Sisestage oma kaal: </td>
+      <td align="left"> <textarea name="message" id="kaal" name ="kaal" required value.bind="nutritionData.kaal" rows="1" cols="4"></textarea></td>
     </tr>
     <tr>
-      <td align="right">Palun sisestage oma pikkus: </td>
-      <td align="left"> <textarea name="message" rows="1" cols="4"></textarea></td>
+      <td align="right">Sisestage oma pikkus: </td>
+      <td align="left"> <textarea name="message" id="pikkus" name ="pikkus" required value.bind="nutritionData.pikkus" rows="1" cols="4"></textarea></td>
     </tr>
     <tr>
       <td align="right">Kas Teil esineb mingeid allergiaid?</td>
-      <td align="left"> <textarea name="message" rows="6" cols="40"></textarea></td>
+      <td align="left"> <textarea name="message" id="allergiad" name ="allergiad" required value.bind="nutritionData.allergiad" rows="6" cols="40"></textarea></td>
     </tr>
       
     <tr>
       <td align="right">Milliseid toiduaineid Te ei söö?</td>
-      <td align="left"> <textarea name="message" rows="6" cols="40"></textarea></td>
+      <td align="left"> <textarea name="message" id="midaEiSoo" name ="midaEiSoo" required value.bind="nutritionData.midaEiSoo" rows="6" cols="40"></textarea></td>
     </tr>
       
     <tr>
       <td align="right"> Milline on Teie toitumisalane eesmärk?</td>
-      <td align="left"> <textarea name="message" rows="6" cols="40"></textarea></td>
+      <td align="left"> <textarea name="message" id="toitumisalaneEesmark" name ="toitumisalaneEesmark" required value.bind="nutritionData.toitumisalaneEesmark" rows="6" cols="40"></textarea></td>
     </tr>
       
      <tr>
       <td align="right"> Kui pikk on teie päev keskmiselt?</td>
-      <td align="left"> <textarea name="message" rows="6" cols="40"></textarea></td>
+      <td align="left"> <textarea name="message" id="paevaPikkus" name ="paevaPikkus" required value.bind="nutritionData.paevaPikkus" rows="6" cols="40"></textarea></td>
     </tr>
       
      <tr>
       <td align="right"> Kas käite trennis? Palun kirjeldage oma aktiivsust.</td>
-      <td align="left"> <textarea name="message" rows="6" cols="40"></textarea></td>
+      <td align="left"> <textarea name="message" id="aktiivsus" name ="aktiivsus" required value.bind="nutritionData.aktiivsus" rows="6" cols="40"></textarea></td>
     </tr>
       
      <tr>
       <td align="right">  Kui palju sööte kodust väljas?</td>
-      <td align="left"> <textarea name="message" rows="6" cols="40"></textarea></td>
+      <td align="left"> <textarea name="message" id="valjasSoomine" name ="valjasSoomine" required value.bind="nutritionData.valjasSoomine" rows="6" cols="40"></textarea></td>
     </tr>
       <br><br>
     </table>
-    </form>
-    
-        
-    
+       
   <table>
     <tr>
         <td align="right"> Valige omale toitumisnõustaja:</td>
         <td><div align="left">
-    <img src="profile-pictures.png" width="20%" height="20%"><br>Mari Maasikas<br>
-        <input type="checkbox" name="option1" class="chk"></div></td>
+    <img src="src/img/treener1.jpg" width="20%" height="20%"><br>Mari Maasikas<br>
+        <input type="checkbox" name="treener" value="Mari Maasikas" class="chk"></div></td>
 
         <td><div align="left">
-    <img src="profile-pictures.png" width="20%" height="20%"><br>Mari Maasikas<br>
-        <input type="checkbox" name="option1" class="chk"></div></td>
+    <img src="src/img/treener2.jpg" width="20%" height="20%"><br>Toomas Tamm<br>
+        <input type="checkbox" name="treener" value="Toomas Tamm" class="chk"></div></td>
 
     <td><div align="left">
-    <img src="profile-pictures.png" width="20%" height="20%"><br>Mari Maasikas<br>
-        <input type="checkbox" name="option1" class="chk"></div></tr>
+    <img src="src/img/treener3.jpg" width="20%" height="20%"><br>Jaana Tamm<br>
+        <input type="checkbox" name="treener" value="Jaana Tamm" class="chk"></div></tr>
     
     </table>
         
         <input type="submit" name="send_btn" value="Saada ära"><br><br>
         
         <a href="#/hinnakiri">Loobu</a>
-        
+       </form>
         
     
     </div>
