@@ -5,7 +5,7 @@ export class Treeningkavaankeet {
 
     addTrainingQuestions(){
         let client = new HttpClient();
-      //this.userData.treener = document.getElementById("nutritionform").treener.value;
+      //this.userData.treener = document.getElementById("trainingform").treener.value;
         client.fetch('http://localhost:8080/..',{ //siia tuleb andmebaas juurde
             'method': "POST",
             'body': json(this.trainingData)
