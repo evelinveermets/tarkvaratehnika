@@ -15,8 +15,8 @@
     
     <div>
         <form id="loginform" submit.delegate="login()" class="logimine">
-            <div>E-mail: <input type="email" id="logEmail" name="logEmail" placeholder="Sisesta meiliaadress" required value.bind="userData.logEmail"></div><br>
-            <div>Parool: <input type="password" id= "logPassword" name="logPassword" placeholder="**********" required value.bind="userData.logPassword"></div><br>
+            <div>E-mail: <input value.bind="loginForm.email" type="email" id="logEmail" name="logEmail" placeholder="Sisesta meiliaadress" required value.bind="userData.logEmail"></div><br>
+            <div>Parool: <input value.bind="loginForm.password" type="password" id= "logPassword" name="logPassword" placeholder="**********" required value.bind="userData.logPassword"></div><br>
             <input type="submit" name="login_btn" value="Logi sisse"><br><br>
 
             <span class="unustasidparooli">

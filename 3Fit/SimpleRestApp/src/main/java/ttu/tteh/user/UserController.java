@@ -26,13 +26,18 @@ public class UserController {
 	@RequestMapping(value="/login", method=RequestMethod.POST, consumes = "application/json")
 	public User login(@RequestBody LoginRequest request){
 		Optional<User> foundUser = userService.getAllUsers().stream()
-				.filter(u -> u.getEmail() == request.getEmail())
+        .filter(u -> u.getEmail() != null) // Sanity checks to avoid NPE - ignore users with NULL fields
+        .filter(u -> u.getPassword() != null)
+				.filter(u -> u.getEmail().equals(request.getEmail()))
 				.findFirst();
-		if(!foundUser.isPresent() || foundUser.get().getPassword() != request.getPassword()){
+		if(!foundUser.isPresent()){
 			// Note: Should we be more specific for the user?
 			throw new RuntimeException("Incorrect email or password");
-		}
-		return foundUser.get();
+		} else if(!foundUser.get().getPassword().equals(request.getPassword())) {
+      throw new RuntimeException("Incorrect email or password");
+    } else {
+      return foundUser.get();
+    }
 	}
 
 	
