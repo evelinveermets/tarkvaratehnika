@@ -1,143 +1,81 @@
 <template>
 <!doctype html>
 <html>
-    <head>
+<head>
     <meta charset="UTF-8">
-        <link href="src/css/style.css" type="text/css" rel="stylesheet">
-        <script src="galerii.js"></script>
-    <title>Personaalne toitumis- ja treeningkava veebist!</title>
-    </head>
-    <body>
+    <link href="src/css/style.css" type="text/css" rel="stylesheet">
+</head>
+<body>
     <div class="taust-ankeet">
-        <h1 class="pealkiri">Treeningkava tellimise ankeet</h1><br>
-        <h4> Treeningkava juures saad ise valida, kas soovid<br> treenida kodus või jõusaalis, määrata ise
-          <br> treeningute sageduse ning eesmärgi!
-          <br> Sõltuvalt eesmärgist on ühe treeningkava
-          <br> kestuseks 2-3 kuud.</h4>
-  <form id="trainingform" submit.delegate="addTrainingQuestions()">
-  <table>
-    <tr>
-      <td align="right">Sisestage oma kaal: </td>
-      <td align="left"> <textarea name="message" id="kaal" name ="kaal" required value.bind="trainingData.kaal" rows="1" cols="4"></textarea></td>
-    </tr>
-    <tr>
-      <td align="right">Sisestage oma pikkus: </td>
-      <td align="left"> <textarea name="message" id="pikkus" name ="pikkus" required value.bind="trainingData.pikkus" rows="1" cols="4"></textarea></td>
-    </tr>
-    <tr>
-      <td align="right">Milline on Teie varasem treeningkogemus?</td>
-      <td align="left"> <textarea name="message" id="treeningkogemus" name ="treeningkogemus" required value.bind="trainingData.treeningkogemus" rows="6" cols="40"></textarea></td>
-    </tr>
-      
-    <tr>
-      <td align="right">Milliseid on Teie treeningalased eesmärgid?</td>
-      <td align="left"> <textarea name="message" id="treeningalasedEesmargid" name ="treeningalasedEesmargid" required value.bind="trainingData.treeningalasedEesmargid" rows="6" cols="40"></textarea></td>
-    </tr>
-      
-    <tr>
-      <td align="right"> Mitu korda nädalas olete valmis treenima?</td>
-      <td align="left"> <textarea name="message" id="treenimineNadalas" name ="treenimineNadalas" required value.bind="trainingData.treenimineNadalas" rows="6" cols="40"></textarea></td>
-    </tr>
-      
-     <tr>
-      <td align="right"> Kas Teil esineb varasemaid vigastusi, mis mõjutavad kuidagi Teie igapäeva elu?</td>
-      <td align="left"> <textarea name="message" id="vigastused" name ="vigastused" required value.bind="trainingData.vigastused" rows="6" cols="40"></textarea></td>
-    </tr>
-      
-     <tr>
-      <td align="right"> Kas Teie treeningutel on mingi ajaline piirang?</td>
-      <td align="left"> <textarea name="message" id="treeninguAjalinePiirang" name ="treeninguAjalinePiirang" required value.bind="trainingData.treeninguAjalinePiirang" rows="6" cols="40"></textarea></td>
-    </tr>
-      
-     <tr>
-      <td align="right">  Kas treenite kodus või spordiklubis?</td>
-      <td align="left"> <textarea name="message" id="kusTreenite" name ="kusTreenite" required value.bind="trainingData.kusTreenite" rows="6" cols="40"></textarea></td>
-    </tr>
-      <tr>
-      <td align="right">  Kirjeldage oma üldis aktiivsust:</td>
-      <td align="left"> <textarea name="message" id="uldineAktiivsus" name ="uldineAktiivsus" required value.bind="trainingData.uldineAktiivsus"rows="6" cols="40"></textarea></td>
-    </tr>
-      <br><br>
-    </table>
+      <h1 class="pealkiri">Treeningkava tellimise ankeet</h1><br>
+      <form id="trainingform" submit.delegate="addTrainingQuestions()">
+          <table>
+            <tr>
+              <td align="right">Sisestage oma kaal: </td>
+              <td align="left"> <input type=text id="kaal" name ="kaal" required value.bind="trainingData.kaal" rows="1" cols="4"></td>
+            </tr>
+            <tr>
+              <td align="right">Sisestage oma pikkus: </td>
+              <td align="left"> <input type=text name="message" id="pikkus" name ="pikkus" required value.bind="trainingData.pikkus" rows="1" cols="4"></td>
+            </tr>
+            <tr>
+              <td align="right">Milline on Teie varasem treeningkogemus?</td>
+              <td align="left"> <textarea name="message" id="treeningkogemus" name ="treeningkogemus" required value.bind="trainingData.treeningkogemus" rows="6" cols="40"></textarea></td>
+            </tr>
+
+            <tr>
+              <td align="right">Milliseid on Teie treeningalased eesmärgid?</td>
+              <td align="left"> <textarea name="message" id="treeningalasedEesmargid" name ="treeningalasedEesmargid" required value.bind="trainingData.treeningalasedEesmargid" rows="6" cols="40"></textarea></td>
+            </tr>
+
+            <tr>
+              <td align="right"> Mitu korda nädalas olete valmis treenima?</td>
+              <td align="left"> <textarea name="message" id="treenimineNadalas" name ="treenimineNadalas" required value.bind="trainingData.treenimineNadalas" rows="6" cols="40"></textarea></td>
+            </tr>
+
+             <tr>
+              <td align="right"> Kas Teil esineb varasemaid vigastusi, mis mõjutavad kuidagi Teie igapäeva elu?</td>
+              <td align="left"> <textarea name="message" id="vigastused" name ="vigastused" required value.bind="trainingData.vigastused" rows="6" cols="40"></textarea></td>
+            </tr>
+
+             <tr>
+              <td align="right"> Kas Teie treeningutel on mingi ajaline piirang?</td>
+              <td align="left"> <textarea name="message" id="treeninguAjalinePiirang" name ="treeninguAjalinePiirang" required value.bind="trainingData.treeninguAjalinePiirang" rows="6" cols="40"></textarea></td>
+            </tr>
+
+             <tr>
+              <td align="right">  Kas treenite kodus või spordiklubis?</td>
+              <td align="left"> <textarea name="message" id="kusTreenite" name ="kusTreenite" required value.bind="trainingData.kusTreenite" rows="6" cols="40"></textarea></td>
+            </tr>
+              <tr>
+              <td align="right">  Kirjeldage oma üldis aktiivsust:</td>
+              <td align="left"> <textarea name="message" id="uldineAktiivsus" name ="uldineAktiivsus" required value.bind="trainingData.uldineAktiivsus"rows="6" cols="40"></textarea></td>
+            </tr>
+              <br><br>
+            </table>
  
     <table>
         <tr>
             <td align="right"> Valige omale personaaltreener:</td>
             <td><div align="left">
         <img src="src/img/treener1.jpg" width="20%" height="20%"><br>Mari Maasikas<br>
-                <input type="checkbox" name="treener" value="Mari Maasikas" class="chk"></div></td>
+                <input type="radio" name="treener" value="Mari Maasikas" class="chk"></div></td>
 
         <td><div align="left">
         <img src="src/img/treener2.jpg" width="20%" height="20%"><br>Toomas Tamm<br>
-            <input type="checkbox" name="treener" value="Toomas Tamm" class="chk"></div></td>
+            <input type="radio" name="treener" value="Toomas Tamm" class="chk"></div></td>
 
         <td><div align="left">
         <img src="src/img/treener3.jpg" width="20%" height="20%"><br>Jaana Tamm<br>
-            <input type="checkbox" name="treener" value="Jaana Tamm" class="chk"></div></td>
+            <input type="radio" name="treener" value="Jaana Tamm" class="chk"></div></td>
     
     </table>
         
         <td><input type="submit" name="send_btn" value="Saada ära"></td>
         </form> 
+   </div><br>
         
-    
-    </div>
-        <div class="slideshow-container">
-  <div class="mySlides fade">
-    <div class="numbertext">1 / 3</div>
-    <img src="3Fit-01.png" style="width:100%">
-    <div class="text">Caption Text</div>
-  </div>
-
-  <div class="mySlides fade">
-    <div class="numbertext">2 / 3</div>
-    <img src="3Fit-02.png" style="width:100%">
-    <div class="text">Caption Two</div>
-  </div>
-
-  <div class="mySlides fade">
-    <div class="numbertext">3 / 3</div>
-    <img src="3Fit-03.png" style="width:100%">
-    <div class="text">Caption Three</div>
-  </div>
-
-    <div class="mySlides fade">
-    <div class="numbertext">3 / 3</div>
-    <img src="3Fit-04.png" style="width:100%">
-    <div class="text">Caption Three</div>
-  </div>
-    <div class="mySlides fade">
-    <div class="numbertext">3 / 3</div>
-    <img src="3Fit-05.png" style="width:100%">
-    <div class="text">Caption Three</div>
-  </div>
-  <div class="mySlides fade">
-    <div class="numbertext">3 / 3</div>
-    <img src="3Fit-06.png" style="width:100%">
-    <div class="text">Caption Three</div>
-  </div>
-<div class="mySlides fade">
-    <div class="numbertext">3 / 3</div>
-    <img src="3Fit-07.png" style="width:100%">
-    <div class="text">Caption Three</div>
-  </div>
-<div class="mySlides fade">
-    <div class="numbertext">3 / 3</div>
-    <img src="3Fit-08.png" style="width:100%">
-    <div class="text">Caption Three</div>
-  </div>
-  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-  <a class="next" onclick="plusSlides(1)">&#10095;</a>
-</div>
-<br>
-
-<div style="text-align:center">
-  <span class="dot" onclick="currentSlide(1)"></span> 
-  <span class="dot" onclick="currentSlide(2)"></span> 
-  <span class="dot" onclick="currentSlide(3)"></span> 
-</div><br>
         <a href="#/hinnakiri">Loobu</a>
-    </body>
-
+</body>
 </html>
 </template>
