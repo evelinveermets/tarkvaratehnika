@@ -237,3 +237,9 @@ li a:hover {
     background-color: white;
     opacity: 0.9;
 }
+.meist{
+    color: #67a048;
+    font-family: 'Tangerine', serif;
+    font-size: 30px;
+    font-weight: bold;
+}
