@@ -4,7 +4,6 @@
     <head>
     <meta charset="UTF-8">
     <link href="src/css/style.css" type="text/css" rel="stylesheet">
-    <title>Personaalne toitumis- ja treeningkava veebist!</title>
     </head>
     <body>
     <div class="taust-ankeet">
@@ -13,11 +12,11 @@
   <table>
     <tr>
       <td align="right">Palun sisestage oma kaal: </td>
-      <td align="left"> <textarea name="message" id="kaal" name ="kaal" required value.bind="trainingNutritionData.kaal" rows="1" cols="4"></textarea></td>
+      <td align="left"> <input type=text name="message" id="kaal" name ="kaal" required value.bind="trainingNutritionData.kaal" rows="1" cols="4"></td>
     </tr>
     <tr>
       <td align="right">Palun sisestage oma pikkus: </td>
-      <td align="left"> <textarea name="message" id="pikkus" name ="pikkus" required value.bind="trainingNutritionData.pikkus" rows="1" cols="4"></textarea></td>
+      <td align="left"> <input type=text name="message" id="pikkus" name ="pikkus" required value.bind="trainingNutritionData.pikkus" rows="1" cols="4"></td>
     </tr>
       
     <tr>
@@ -76,15 +75,15 @@
         <td align="right"> Valige omale treening ja toitumisnõustaja:</td>
         <td><div align="left">
     <img src="src/img/treener1.jpg" width="20%" height="20%"><br>Mari Maasikas<br>
-        <input type="checkbox" name="treener" value="Mari Maasikas" class="chk"></div></td>
+        <input type="radio" name="treener" value="Mari Maasikas" class="chk"></div></td>
 
         <td><div align="left">
     <img src="src/img/treener2.jpg" width="20%" height="20%"><br>Toomas Tamm<br>
-        <input type="checkbox" name="treener" value="Toomas Tamm" class="chk"></div></td>
+        <input type="radio" name="treener" value="Toomas Tamm" class="chk"></div></td>
 
     <td><div align="left">
     <img src="src/img/treener3.jpg" width="20%" height="20%"><br>Jaana Tamm<br>
-        <input type="checkbox" name="treener" value="Jaana Tamm" class="chk"></div></td>
+        <input type="radio" name="treener" value="Jaana Tamm" class="chk"></div></td>
     
     </table>
         
