@@ -27,13 +27,13 @@
         <form id="registrationform" submit.delegate="addUser()" class="registreerumine">
                 <div data-toggle="tooltip" title="E-maili aadress peab olema kujul example@example.com">E-mail: <input type="email" id="email" name="email" required value.bind="userData.email"></div><br>
 
-                <div data-toggle="tooltip" title="Parool peab olema vähemalt 8 tähemärki pikk">Parool: <input type="password" id="password" name="password" required value.bind="userData.password"></div><br>
+                <div data-toggle="tooltip" title="Parool peab olema vähemalt 6 tähemärki pikk, sisaldama suuri ja väikeseid tähti ning numbrit või sümbolit">Parool: <input type="password" id="password" name="password" required value.bind="userData.password"></div><br>
             
                 <div>Korda parooli: <input type="password" id="passwordConf" name="passwordConf" required value.bind="userData.passwordConf"></div><br>
             
-                <div>Eesnimi: <input type="text" id="firstname" name="firstname" required value.bind="userData.firstname"></div><br>
+                <div>Eesnimi: <input type="text" id="firstname" name="firstname" style="text-trasform: capitalize" required value.bind="userData.firstname"></div><br>
             
-                <div>Perekonnanimi: <input type="text" id="lastname" name="lastname" required value.bind="userData.lastname"></div><br>
+                <div>Perekonnanimi: <input type="text" id="lastname" name="lastname" style="text-transform: capitalize;" required value.bind="userData.lastname"></div><br>
             
                 <div>Sugu: <input type="radio" name="gender" value="male" checked> Mees
                 <input type="radio" name="gender" value="female"> Naine<br></div><br>
