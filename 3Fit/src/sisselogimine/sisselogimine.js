@@ -15,7 +15,12 @@ export class Sisselogimine {
     console.log(router);
   }
 
+  initialize(){
+    this.userData = {};
+    this.loginForm = {};
+  }
   activate(){
+      this.initialize();
       console.log("Is logged in: ", LoginService.isLoggedIn());
   }
 
@@ -29,7 +34,10 @@ export class Sisselogimine {
   addUser(){
       this.userData.gender = document.getElementById("registrationform").gender.value;
       LoginService.register(this.userData)
-        .then(success => this.router.navigateToRoute('avaleht'))
+        .then(success => {
+          this.initialize();
+          alert("You've been logged on (TODO: Replace me with a better notification)")
+        })
         .catch(error => console.warn(error.message));
   }
 }

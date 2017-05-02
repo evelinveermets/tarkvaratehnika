@@ -1,12 +1,5 @@
 import {HttpClient, json} from 'aurelia-fetch-client';
 
-// Export on tähtis
-export class TestService {
-  val;
-  // Kui instantsi ei loo siis peab olema static
-  static test(){
-  }
-}
 export class LoginService {
   static client = new HttpClient();
 
@@ -14,6 +7,7 @@ export class LoginService {
     localStorage.removeItem("userID");
     localStorage.removeItem("userEmail");
     localStorage.removeItem("userPassword");
+    localStorage.removeItem("userFirstName");
   }
 
   static login(email, password){
@@ -28,11 +22,13 @@ export class LoginService {
             localStorage.setItem("userID", user.id);
             localStorage.setItem("userEmail", user.email);
             localStorage.setItem("userPassword", user.password);
+            localStorage.setItem("userFirstName", user.firstname);
             return user.id;
           } else {
             localStorage.removeItem("userID");
             localStorage.removeItem("userEmail");
             localStorage.removeItem("userPassword");
+            localStorage.removeItem("userFirstName");
             throw new Error(user.message);
           }
         });

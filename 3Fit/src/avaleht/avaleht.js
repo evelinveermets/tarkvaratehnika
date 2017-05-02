@@ -5,7 +5,7 @@ import {LoginService} from '../myServices';
 
 export class Avaleht {
     constructor() {
-        this.message = "Testing..."
+        this.clientName = localStorage.getItem("userFirstName");
     }
     activate(){
 

@@ -22,7 +22,8 @@ export class App {
           { route: 'treeningtoitumiskavaankeet', name: 'treeningtoitumiskavaankeet', moduleId: 'treeningtoitumiskavaankeet/treeningtoitumiskavaankeet',   nav: true },
           { route: 'treener_avaleht', name: 'treener_avaleht', moduleId: 'treener_avaleht/treener_avaleht',   nav: true },
           { route: 'treener_minukonto', name: 'treener_minukonto', moduleId: 'treener_minukonto/treener_minukonto',   nav: true },
-          { route: 'treener_tellijad', name: 'treener_tellijad', moduleId: 'treener_tellijad/treener_tellijad',   nav: true }
+          { route: 'treener_tellijad', name: 'treener_tellijad', moduleId: 'treener_tellijad/treener_tellijad',   nav: true },
+          { route: 'treener_sisselogimine', name: 'treener_sisselogimine', moduleId: 'treener_sisselogimine/treener_sisselogimine',   nav: true }
         ]);
   }
     
