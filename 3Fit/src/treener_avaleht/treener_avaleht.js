@@ -1,14 +1,14 @@
 import {inject} from 'aurelia-framework';
-import {LoginService2} from '../myTrainerServices';
+import {TrainerLoginService} from '../TrainerLoginService';
 export class Treener_avaleht {
 
   constructor() {
-    this.trainerName = localStorage.getItem("trainerFirstName");
+    this.trainerName = TrainerLoginService.getTrainer().firstName;
   }
 
 
     logout(){
-        LoginService2.logout();
+        TrainerLoginService.logout();
         alert("Logged out");
         this.router.navigateToRoute('#/treener_sisselogimine');
   }

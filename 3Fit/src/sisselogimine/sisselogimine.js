@@ -1,12 +1,11 @@
-import {HttpClient, json} from 'aurelia-fetch-client'
-import {LoginService} from '../myServices';
+import {LoginService} from '../LoginService';
 import {inject} from 'aurelia-framework';
 import { Router } from 'aurelia-router';
 
 @inject(Router)
 export class Sisselogimine {
     userData = {};
-  loginForm = {};
+   loginForm = {};
     router;
 
   constructor(router : Router) {
@@ -15,15 +14,8 @@ export class Sisselogimine {
     console.log(router);
   }
 
-  initialize(){
-    this.userData = {};
-    this.loginForm = {};
-  }
   activate(){
-      this.initialize();
-      console.log("Is logged in: ", LoginService.isLoggedIn());
   }
-
 
   login(){
     LoginService.login(this.loginForm.email, this.loginForm.password)
@@ -34,10 +26,7 @@ export class Sisselogimine {
   addUser(){
       this.userData.gender = document.getElementById("registrationform").gender.value;
       LoginService.register(this.userData)
-        .then(success => {
-          this.initialize();
-          alert("You've been logged on (TODO: Replace me with a better notification)")
-        })
+        .then(success => window.location.reload(true))
         .catch(error => console.warn(error.message));
   }
 }

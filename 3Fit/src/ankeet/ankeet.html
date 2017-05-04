@@ -10,44 +10,25 @@
         <h1 class="pealkiri">Toitumiskava tellimise ankeet</h1>
     <form id="nutritionform" submit.delegate="addNutritionQuestions()">
   <table>
-    <tr>
+    <!-- <div repeat.for="item of items"> -->
+    <tr repeat.for="q of questions">
+      <td align="right">${q.question}</td>
+      <td align="left">
+        <input if.bind="q.type == 'smallText'" type="text" name="${q.question}" required />
+        <textarea if.bind="q.type == 'largeText'" type="text" name="${q.question}" required ></textarea>
+        <textarea if.bind="q.type != 'smallText' && q.type != 'largeText'" type="text" name="${q.question}" required ></textarea>
+      </td>
+    </tr>
+    <!--
       <td align="right">Sisestage oma kaal: </td>
-      <td align="left"> <input type=text name="message" id="kaal" name ="kaal" required value.bind="nutritionData.kaal" rows="1" cols="4"></td>
-    </tr>
-    <tr>
       <td align="right">Sisestage oma pikkus: </td>
-      <td align="left"> <input type=text name="message" id="pikkus" name ="pikkus" required value.bind="nutritionData.pikkus" rows="1" cols="4"></td>
-    </tr>
-    <tr>
       <td align="right">Kas Teil esineb mingeid allergiaid?</td>
-      <td align="left"> <textarea name="message" id="allergiad" name ="allergiad" required value.bind="nutritionData.allergiad" rows="6" cols="40"></textarea></td>
-    </tr>
-      
-    <tr>
       <td align="right">Milliseid toiduaineid Te ei söö?</td>
-      <td align="left"> <textarea name="message" id="midaEiSoo" name ="midaEiSoo" required value.bind="nutritionData.midaEiSoo" rows="6" cols="40"></textarea></td>
-    </tr>
-      
-    <tr>
       <td align="right"> Milline on Teie toitumisalane eesmärk?</td>
-      <td align="left"> <textarea name="message" id="toitumisalaneEesmark" name ="toitumisalaneEesmark" required value.bind="nutritionData.toitumisalaneEesmark" rows="6" cols="40"></textarea></td>
-    </tr>
-      
-     <tr>
       <td align="right"> Kui pikk on teie päev keskmiselt?</td>
-      <td align="left"> <textarea name="message" id="paevaPikkus" name ="paevaPikkus" required value.bind="nutritionData.paevaPikkus" rows="6" cols="40"></textarea></td>
-    </tr>
-      
-     <tr>
       <td align="right"> Kas käite trennis? Palun kirjeldage oma aktiivsust.</td>
-      <td align="left"> <textarea name="message" id="aktiivsus" name ="aktiivsus" required value.bind="nutritionData.aktiivsus" rows="6" cols="40"></textarea></td>
-    </tr>
-      
-     <tr>
       <td align="right">  Kui palju sööte kodust väljas?</td>
-      <td align="left"> <textarea name="message" id="valjasSoomine" name ="valjasSoomine" required value.bind="nutritionData.valjasSoomine" rows="6" cols="40"></textarea></td>
-    </tr>
-      <br><br>
+    -->
     </table>
        
   <table>

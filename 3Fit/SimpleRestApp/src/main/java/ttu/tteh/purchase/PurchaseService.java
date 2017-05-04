@@ -2,6 +2,7 @@ package ttu.tteh.purchase;
 
 import org.springframework.stereotype.Service;
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Created by Ly Tempel on 09.04.2017.
@@ -10,12 +11,11 @@ import java.util.List;
 public class PurchaseService {
     private PurchaseRepository purchaseRepository;
 
-    public PurchaseService(PurchaseRepository userRepository) {
-        this.purchaseRepository = userRepository;
+    public PurchaseService(PurchaseRepository purchaseRepository) {
+        this.purchaseRepository = purchaseRepository;
     }
-
-    Purchase addPurchase(Purchase purchase) {
-        return purchaseRepository.save(purchase);
+    Purchase findPurchaseById(long id){
+      return purchaseRepository.findOne(id);
     }
 
     List<Purchase> getAllUsers() {
@@ -25,4 +25,8 @@ public class PurchaseService {
     Purchase getUserById(long userId) {
         return purchaseRepository.findOne(userId);
     }
+
+  public void save(Purchase purchase) {
+    purchaseRepository.save(purchase);
+  }
 }

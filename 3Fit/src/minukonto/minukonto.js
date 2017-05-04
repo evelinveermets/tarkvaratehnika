@@ -1,5 +1,5 @@
 import {inject} from 'aurelia-framework';
-import {LoginService} from '../myServices';
+import {LoginService} from '../LoginService';
 
 export class Minukonto {
     constructor() {

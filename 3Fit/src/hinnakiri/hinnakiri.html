@@ -1,3 +1,4 @@
+
 <template>
 <!DOCTYPE HTML>
 <html>
@@ -21,13 +22,27 @@
         <li><a href="#" click.delegate="logout()">Logi välja</a></li>
         </ul><br>
     </div>
-    <h1 class="meist">Vali endale sobiv kava</h1> 
+    <h1 class="meist">Vali endale sobiv kava</h1>
+
+
+    <form role = "form" submit.delegate="submit()">
     <table>
 		<tr>
 			<th class="meist">Hind</th>
 			<th class="meist">Paketi nimi</th>
 			<th class="meist">Mida sisaldab</th>
 		</tr>
+
+    <tr repeat.for="p of products">
+      <td>${p.cost}€</td>
+      <td>${p.title}</td>
+      <td>TODO (Lisada andmebaasi tulp)</td>
+      <td>
+        <input type = "radio" name = "product"
+           model.bind = "p" checked.bind = "$parent.selectedOption"/>
+      </td>
+    </tr>
+<!--
 		<tr>
 			<td>35€</td>
 			<td>Toitumiskava</td>
@@ -52,20 +67,15 @@
             kes vajavad oma eesmärkideni jõudmisel täieliku
             pühendumist. Kavade koostamisel arvestatakse
             kõigi Sinu soovide ning vajadustega.</td>
-            
-            
+
+
 		</tr>
+		-->
 	</table> <br>
-    </div>
-    <script src="app.js"></script>
-    <form role = "form" submit.delegate = "submit()">
-    <label repeat.for = "option of options">
-         <input type = "radio" name = "myOptions" 
-            model.bind = "option" checked.bind = "$parent.selectedOption"/>
-            ${option.text}
-    </label><br/>	
-    <button type = "submit">Vali kava</button>
+    <input type = "submit" value="Vali kava" />
    </form>
+  </div>
+
 </body>
 
 </html>

@@ -23,7 +23,7 @@ export class LoginService {
             localStorage.setItem("userEmail", user.email);
             localStorage.setItem("userPassword", user.password);
             localStorage.setItem("userFirstName", user.firstname);
-            return user.id;
+            return user;
           } else {
             localStorage.removeItem("userID");
             localStorage.removeItem("userEmail");
@@ -42,9 +42,6 @@ export class LoginService {
       .then(response => response.json())
       .then(user => {
         if(user.id !== undefined){
-          localStorage.setItem("userID", user.id);
-          localStorage.setItem("userEmail", user.email);
-          localStorage.setItem("userPassword", user.password);
           return user.id;
         } else {
           throw new Error(user.message);

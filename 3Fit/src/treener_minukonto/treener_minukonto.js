@@ -1,5 +1,5 @@
 import {inject} from 'aurelia-framework';
-import {LoginService2} from '../myTrainerServices';
+import {TrainerLoginService} from '../TrainerLoginService';
 
 export class Treener_minukonto {
     logout(){

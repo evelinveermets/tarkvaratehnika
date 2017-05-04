@@ -1,5 +1,7 @@
 package ttu.tteh.answer;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.Getter;
 import lombok.Setter;
 import ttu.tteh.purchase.Purchase;
@@ -20,6 +22,7 @@ public class Answer {
     @ManyToOne
     Question question;
     String answer;
+    @JsonIgnore
     @ManyToOne
     Purchase purchase;
 }

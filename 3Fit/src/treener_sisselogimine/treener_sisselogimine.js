@@ -1,5 +1,5 @@
 import {HttpClient, json} from 'aurelia-fetch-client'
-import {LoginService2} from '../myTrainerServices';
+import {TrainerLoginService} from '../TrainerLoginService';
 import {inject} from 'aurelia-framework';
 import { Router } from 'aurelia-router';
 
@@ -16,12 +16,12 @@ export class treener_sisselogimine {
   }
 
   activate(){
-      console.log("Is logged in: ", LoginService2.isLoggedIn());
+      console.log("Is logged in: ", TrainerLoginService.isLoggedIn());
   }
 
 
   login2(){
-    LoginService2.login2(this.loginForm2.email, this.loginForm2.password)
+    TrainerLoginService.login2(this.loginForm2.email, this.loginForm2.password)
       .then(success => this.router.navigateToRoute('treener_avaleht'))
       .catch(error => console.warn(error.message))
   }

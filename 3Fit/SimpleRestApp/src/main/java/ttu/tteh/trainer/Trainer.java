@@ -1,5 +1,7 @@
 package ttu.tteh.trainer;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.Getter;
 import lombok.Setter;
 import ttu.tteh.purchase.Purchase;
@@ -22,6 +24,7 @@ public class Trainer {
     String lastname;
     String gender;
     Date birthday;
+    @JsonIgnore
     @OneToMany(mappedBy="trainer", cascade=CascadeType.ALL)
     List<Purchase> purchases;
 }

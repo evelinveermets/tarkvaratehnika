@@ -1,5 +1,7 @@
 package ttu.tteh.product;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.Getter;
 import lombok.Setter;
 import ttu.tteh.purchase.Purchase;
@@ -17,8 +19,10 @@ public class Product {
     long id;
     String title;
     int cost;
+    @JsonIgnore
     @OneToMany(mappedBy="product", cascade= CascadeType.ALL)
     List<Purchase> purchases;
+    @JsonIgnore
     @OneToMany(mappedBy="product", cascade= CascadeType.ALL)
     List<Question> questions;
 }

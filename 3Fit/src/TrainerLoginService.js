@@ -1,6 +1,6 @@
 import {HttpClient, json} from 'aurelia-fetch-client';
 
-export class LoginService2 {
+export class TrainerLoginService {
   static client = new HttpClient();
 
   static logout(){
@@ -49,6 +49,14 @@ export class LoginService2 {
     return {
       email: localStorage['trainerEmail'],
       password: localStorage['trainerPassword']
+    }
+  }
+
+  static getTrainer() {
+    return {
+      firstName: localStorage['trainerFirstName'],
+      lastName: localStorage['trainerLastName'],
+      email: localStorage['trainerEmail'],
     }
   }
 }

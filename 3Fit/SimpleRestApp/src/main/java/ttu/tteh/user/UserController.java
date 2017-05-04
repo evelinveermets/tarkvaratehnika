@@ -14,22 +14,21 @@ public class UserController {
 		this.userService = userService;
 	}
 	
-	@RequestMapping(value="/users/add", method=RequestMethod.POST, consumes = "application/json")
-	public User addUser(@RequestBody User user) {
+	@RequestMapping(value="/users/add",
+    method=RequestMethod.POST,
+    consumes = "application/json")
+
+  public User addUser(@RequestBody User user) {
 		if(userService.getUserById(user.getId()) != null){
 			throw new IllegalArgumentException("You are not allowed to specify the ID of the user you are creating!");
 		}
-		// TODO: Other checks
 		return userService.addUser(user);
 	}
 
 	@RequestMapping(value="/login", method=RequestMethod.POST, consumes = "application/json")
 	public User login(@RequestBody LoginRequest request){
-		Optional<User> foundUser = userService.getAllUsers().stream()
-        .filter(u -> u.getEmail() != null) // Sanity checks to avoid NPE - ignore users with NULL fields
-        .filter(u -> u.getPassword() != null)
-				.filter(u -> u.getEmail().equals(request.getEmail()))
-				.findFirst();
+		Optional<User> foundUser = userService.login(request.getEmail(), request.getPassword());
+
 		if(!foundUser.isPresent()){
 			// Note: Should we be more specific for the user?
 			throw new RuntimeException("Incorrect email or password");

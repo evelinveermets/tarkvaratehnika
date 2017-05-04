@@ -19,11 +19,12 @@ public class TrainerService {
 		return trainerRepository.save(trainer);
 	}
 
-	List<Trainer> getAllTrainers() {
+	public List<Trainer> getAllTrainers() {
 		return trainerRepository.findAll();
 	}
 
-	Trainer getTrainerById(long trainerId) {
+	public Trainer getTrainerById(long trainerId) {
 		return trainerRepository.findOne(trainerId);
 	}
+
 }

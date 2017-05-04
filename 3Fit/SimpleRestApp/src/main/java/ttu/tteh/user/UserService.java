@@ -3,6 +3,7 @@ package ttu.tteh.user;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserService {
@@ -19,11 +20,18 @@ public class UserService {
 		return userRepository.save(user);
 	}
 
+	public Optional<User> login(String email, String password){
+    return this.getAllUsers().stream()
+      .filter(u -> email.equals(u.getEmail()))
+      .filter(u -> password.equals(u.getPassword()))
+      .findFirst();
+  }
+
 	List<User> getAllUsers() {
 		return userRepository.findAll();
 	}
 
-	User getUserById(long userId) {
+	public User getUserById(long userId) {
 		return userRepository.findOne(userId);
 	}
 }
