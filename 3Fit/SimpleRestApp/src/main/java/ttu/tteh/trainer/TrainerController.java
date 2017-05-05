@@ -23,7 +23,6 @@ public class TrainerController {
 				.filter(t -> t.getEmail().equals(request.getEmail()))
 				.findFirst();
 		if(!foundTrainer.isPresent()){
-			// Note: Should we be more specific for the user?
 			throw new RuntimeException("Incorrect email or password");
 		} else if(!foundTrainer.get().getPassword().equals(request.getPassword())) {
       throw new RuntimeException("Incorrect email or password");

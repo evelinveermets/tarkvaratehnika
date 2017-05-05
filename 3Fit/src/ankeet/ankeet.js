@@ -1,7 +1,7 @@
 import {HttpClient, json} from 'aurelia-fetch-client'
 import { LoginService } from '../LoginService'
 
-export class Toitumiskavaankeet {
+export class Ankeet {
      questions = [];
      productID;
 

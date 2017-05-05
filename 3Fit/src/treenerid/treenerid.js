@@ -1,10 +1,13 @@
 import {inject} from 'aurelia-framework';
 import {LoginService} from '../LoginService';
+import {Router} from 'aurelia-router';
 
-
+@inject(Router)
 export class Treenerid {
-    constructor() {
-        this.message = "Testing..."
+    router;
+
+    constructor(router : Router) {
+        this.router = router;
     }
 
 

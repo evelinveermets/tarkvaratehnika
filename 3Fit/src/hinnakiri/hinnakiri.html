@@ -36,41 +36,12 @@
     <tr repeat.for="p of products">
       <td>${p.cost}€</td>
       <td>${p.title}</td>
-      <td>TODO (Lisada andmebaasi tulp)</td>
+      <td>${p.description}</td>
       <td>
         <input type = "radio" name = "product"
            model.bind = "p" checked.bind = "$parent.selectedOption"/>
       </td>
     </tr>
-<!--
-		<tr>
-			<td>35€</td>
-			<td>Toitumiskava</td>
-			<td>Toitumiskava juures arvestatake Sinu
-            eesmärkide ja vajadustega. Toitumisspetsialist
-            koostab Sulle kava, mis on kooskõlas Sinu soovidega
-            ning arvestab ka erinevate iseärasustega!</td>
-		</tr>
-		<tr>
-			<td>35€</td>
-			<td>Treeningkava</td>
-			<td>Treeningkava juures saad ise valida, kas soovid
-            treenida kodus või jõusaalis, määrata ise
-            treeningute sageduse ning eesmärgi!
-            Sõltuvalt eesmärgist on ühe treeningkava
-            kestuseks 2-3 kuud.</td>
-		</tr>
-		<tr>
-			<td>50€</td>
-			<td>Toitumiskava + treeningkava</td>
-            <td>Treening- ja toitumiskava on parim valik neile,
-            kes vajavad oma eesmärkideni jõudmisel täieliku
-            pühendumist. Kavade koostamisel arvestatakse
-            kõigi Sinu soovide ning vajadustega.</td>
-
-
-		</tr>
-		-->
 	</table> <br>
     <input type = "submit" value="Vali kava" />
    </form>

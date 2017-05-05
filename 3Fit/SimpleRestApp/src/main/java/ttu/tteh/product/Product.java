@@ -19,6 +19,7 @@ public class Product {
     long id;
     String title;
     int cost;
+    String description;
     @JsonIgnore
     @OneToMany(mappedBy="product", cascade= CascadeType.ALL)
     List<Purchase> purchases;

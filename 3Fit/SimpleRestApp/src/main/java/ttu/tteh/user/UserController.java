@@ -30,7 +30,6 @@ public class UserController {
 		Optional<User> foundUser = userService.login(request.getEmail(), request.getPassword());
 
 		if(!foundUser.isPresent()){
-			// Note: Should we be more specific for the user?
 			throw new RuntimeException("Incorrect email or password");
 		} else if(!foundUser.get().getPassword().equals(request.getPassword())) {
       throw new RuntimeException("Incorrect email or password");

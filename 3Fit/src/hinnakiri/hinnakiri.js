@@ -1,10 +1,17 @@
 import {inject} from 'aurelia-framework';
 import {LoginService} from '../LoginService';
 import {ProductService} from '../ProductService'
-export class hinnakiri{
+import {Router} from 'aurelia-router';
 
+@inject(Router)
+export class hinnakiri{
   products = [];
   selectedOption = {};
+  router;
+
+  constructor(router : Router) {
+    this.router = router;
+  }
 
   activate(){
     let user = LoginService.getCredentials();

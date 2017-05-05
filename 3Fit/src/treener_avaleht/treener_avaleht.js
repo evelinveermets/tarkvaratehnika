@@ -1,8 +1,14 @@
 import {inject} from 'aurelia-framework';
 import {TrainerLoginService} from '../TrainerLoginService';
-export class Treener_avaleht {
+import {Router} from 'aurelia-router';
 
-  constructor() {
+
+@inject(Router)
+export class Treener_avaleht {
+  router;
+
+  constructor(router : Router) {
+    this.router = router;
     this.trainerName = TrainerLoginService.getTrainer().firstName;
   }
 
@@ -10,7 +16,7 @@ export class Treener_avaleht {
     logout(){
         TrainerLoginService.logout();
         alert("Logged out");
-        this.router.navigateToRoute('#/treener_sisselogimine');
+        this.router.navigateToRoute('treener_sisselogimine');
   }
     
 }

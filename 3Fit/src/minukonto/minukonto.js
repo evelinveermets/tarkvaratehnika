@@ -1,9 +1,14 @@
 import {inject} from 'aurelia-framework';
 import {LoginService} from '../LoginService';
+import {Router} from 'aurelia-router';
 
+
+@inject(Router)
 export class Minukonto {
-    constructor() {
-        this.message = "Testing..."
+    router;
+
+    constructor(router : Router) {
+        this.router = router;
     }
 
   logout(){

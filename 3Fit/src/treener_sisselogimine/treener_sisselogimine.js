@@ -16,7 +16,7 @@ export class treener_sisselogimine {
   }
 
   activate(){
-      console.log("Is logged in: ", TrainerLoginService.isLoggedIn());
+
   }
 
 
