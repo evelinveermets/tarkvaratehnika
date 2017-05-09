@@ -12,6 +12,6 @@ import lombok.Setter;
 public class GetQuestionsForProductRequest {
   String email;
   String password;
-  long productID;
+  long productId;
 }
 

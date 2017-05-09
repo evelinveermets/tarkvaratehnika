@@ -1,52 +1,47 @@
 <template>
-<!doctype html>
-<html>
-    <head>
+  <!doctype html>
+  <html>
+  <head>
     <meta charset="UTF-8">
     <link href="src/css/style.css" type="text/css" rel="stylesheet">
-    </head>
-    <body>
-    <div class="taust-ankeet">
-        <h1 class="pealkiri">Toitumiskava tellimise ankeet</h1>
-    <form id="nutritionform" submit.delegate="addNutritionQuestions()">
-  <table>
-    <!-- <div repeat.for="item of items"> -->
-    <tr repeat.for="q of questions">
-      <td align="right">${q.question}</td>
-      <td align="left">
-        <input if.bind="q.type == 'smallText'" type="text" name="${q.question}" required />
-        <textarea if.bind="q.type == 'largeText'" type="text" name="${q.question}" required ></textarea>
-        <textarea if.bind="q.type != 'smallText' && q.type != 'largeText'" type="text" name="${q.question}" required ></textarea>
-      </td>
-    </tr>
-    </table>
-       
-  <table>
-    <tr>
-        <td align="right"> Valige omale toitumisnõustaja:</td>
-        <td><div align="left">
-    <img src="src/img/treener1.jpg" width="20%" height="20%"><br>Mari Maasikas<br>
-        <input type="radio" name="treener" value="Mari Maasikas" class="chk"></div></td>
+  </head>
+  <body>
+  <div class="taust-ankeet">
+    <h1 class="pealkiri">${product.title} tellimise ankeet</h1>
+    <form id="nutritionform" submit.delegate="submitQuestions($event)">
+      <table>
+        <!-- <div repeat.for="item of items"> -->
+        <tr repeat.for="q of questions">
+          <td align="right">${q.question}</td>
+          <td align="left">
+            <input if.bind="q.type == 'smallText'" type="text" name="${q.question}" value.bind="$parent.form[q.id]" required/>
+            <textarea if.bind="q.type == 'largeText'" type="text" name="${q.question}" value.bind="$parent.form[q.id]" required></textarea>
+            <textarea if.bind="q.type != 'smallText' && q.type != 'largeText'" type="text" value.bind="$parent.form[q.id]" name="${q.question}"
+                      required></textarea>
+          </td>
+        </tr>
+      </table>
 
-        <td><div align="left">
-    <img src="src/img/treener2.jpg" width="20%" height="20%"><br>Toomas Tamm<br>
-        <input type="radio" name="treener" value="Toomas Tamm" class="chk"></div></td>
+      <table>
+        <tr>
+          <td align="right"> Valige omale nõustaja:</td>
+          <td repeat.for="t of trainers">
+            <div align="left">
+              <img src="${t.imageUrl}" width="20%" height="20%"><br>${t.firstname + ' ' + t.lastname}<br>
+              <input type="radio" name="treener" value="${t.firstname + ' ' + t.lastname}" class="chk"></div>
+          </td>
 
-    <td><div align="left">
-    <img src="src/img/treener3.jpg" width="20%" height="20%"><br>Jaana Tamm<br>
-        <input type="radio" name="treener" value="Jaana Tamm" class="chk"></div></tr>
-    
-    </table>
-        
-        <input type="submit" name="send_btn" value="Saada ära"><br><br>
-        
-        <a href="#/hinnakiri">Loobu</a>
-       </form>
-        
-    
-    </div>
-    </body>
+      </table>
 
-</html>
+      <input type="submit" name="send_btn" value="Saada ära"><br><br>
+
+      <a href="#/hinnakiri">Loobu</a>
+    </form>
+
+
+  </div>
+  </body>
+
+  </html>
 </template>
 

@@ -21,6 +21,9 @@ public class UserService {
 	}
 
 	public Optional<User> login(String email, String password){
+	  if(email == null || password == null){
+	    throw new NullPointerException("You must specify an email and password");
+    }
     return this.getAllUsers().stream()
       .filter(u -> email.equals(u.getEmail()))
       .filter(u -> password.equals(u.getPassword()))

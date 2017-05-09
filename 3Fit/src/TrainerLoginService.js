@@ -4,7 +4,7 @@ export class TrainerLoginService {
   static client = new HttpClient();
 
   static logout(){
-    localStorage.removeItem("trainerID");
+    localStorage.removeItem("trainerId");
     localStorage.removeItem("trainerEmail");
     localStorage.removeItem("trainerPassword");
     localStorage.removeItem("trainerFirstName");
@@ -19,13 +19,13 @@ export class TrainerLoginService {
         .then(trainer => {
 
           if(trainer.id !== undefined){
-            localStorage.setItem("trainerID", trainer.id);
+            localStorage.setItem("trainerId", trainer.id);
             localStorage.setItem("trainerEmail", trainer.email);
             localStorage.setItem("trainerPassword", trainer.password);
             localStorage.setItem("trainerFirstName", trainer.firstname);
             return trainer.id;
           } else {
-            localStorage.removeItem("trainerID");
+            localStorage.removeItem("trainerId");
             localStorage.removeItem("trainerEmail");
             localStorage.removeItem("trainerPassword");
             localStorage.removeItem("trainerFirstName");
@@ -36,7 +36,7 @@ export class TrainerLoginService {
 
 
   static isLoggedIn(){
-    return localStorage['trainerID'];
+    return localStorage['trainerId'];
   }
 
   static isDefinitelyLoggedIn(){

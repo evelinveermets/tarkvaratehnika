@@ -32,7 +32,7 @@ public class QuestionController {
     if(!user.isPresent()) {
       throw new RuntimeException("You are not logged on");
     }
-    return questionService.getQuestionsForProduct(request.getProductID());
+    return questionService.getQuestionsForProduct(request.getProductId());
   }
 
 

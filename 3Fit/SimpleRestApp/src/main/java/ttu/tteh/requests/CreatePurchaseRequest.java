@@ -14,8 +14,8 @@ import java.util.List;
 @Setter
 public class CreatePurchaseRequest {
     HashMap<Integer, String> answers;
-    long trainerID;
-    long productID;
+    long trainerId;
+    long productId;
 
     String email;
     String password;

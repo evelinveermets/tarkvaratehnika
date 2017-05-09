@@ -4,6 +4,7 @@ import org.springframework.web.bind.annotation.*;
 import ttu.tteh.requests.LoginRequest2;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @RestController
 public class TrainerController {
@@ -33,12 +34,15 @@ public class TrainerController {
 
 	
 	@RequestMapping(value="/trainers", method=RequestMethod.GET)
-	public List<Trainer> getAllTrainers() {
-		return trainerService.getAllTrainers();
+	public List<Trainer.PublicTrainer> getAllTrainers() {
+	  return trainerService.getAllTrainers()
+      .parallelStream()
+      .map(t -> t.asPublicTrainer())
+      .collect(Collectors.toList());
 	}
 	
 	@RequestMapping(value = "/trainers/{id}", method=RequestMethod.GET)
-	public Trainer getTrainer(@PathVariable("id") long trainerId) {
-		return trainerService.getTrainerById(trainerId);
+	public Trainer.PublicTrainer getTrainer(@PathVariable("id") long trainerId) {
+		return trainerService.getTrainerById(trainerId).asPublicTrainer();
 	}
 }

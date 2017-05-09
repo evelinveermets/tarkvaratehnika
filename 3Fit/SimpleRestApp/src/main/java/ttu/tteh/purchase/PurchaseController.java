@@ -39,15 +39,15 @@ public class PurchaseController {
   }
 
 
-    @RequestMapping(value="/purchases", method=RequestMethod.POST, consumes="application/json")
+    @RequestMapping(value="/purchases/create", method=RequestMethod.POST, consumes="application/json")
     public Purchase createPurchase(@RequestBody CreatePurchaseRequest request){
       Optional<User> foundUser = userService.login(request.getEmail(), request.getPassword());
       if(!foundUser.isPresent()){
         throw new RuntimeException("You are not logged in!");
       }
 
-      Product foundProduct = productService.findProductById(request.getProductID());
-      Trainer trainer = trainerService.getTrainerById(request.getTrainerID());
+      Product foundProduct = productService.findProductById(request.getProductId());
+      Trainer trainer = trainerService.getTrainerById(request.getTrainerId());
 
       Purchase purchase = new Purchase();
       purchase.setOwner(foundUser.get());
