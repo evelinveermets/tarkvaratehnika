@@ -25,7 +25,7 @@ import ttu.tteh.user.UserService;
 public class PurchaseController {
 
   private PurchaseService purchaseService;
-  private  UserService userService;
+  private UserService userService;
   private final ProductService productService;
   private TrainerService trainerService;
   private final QuestionService questionService;
@@ -41,7 +41,7 @@ public class PurchaseController {
   }
 
 
-    @RequestMapping(value="/purchases", method=RequestMethod.POST, consumes="application/json")
+    @RequestMapping(value="/user/purchases", method=RequestMethod.POST, consumes="application/json")
     public List<Purchase> getPurchases(@RequestBody User request){
       Optional<User> foundUser = userService.login(request.getEmail(), request.getPassword());
       if(!foundUser.isPresent()){
@@ -49,9 +49,24 @@ public class PurchaseController {
       }
       return purchaseService.getAllPurchases()
         .parallelStream()
+        .filter(p -> p.owner != null)
         .filter(p -> p.owner.equals(foundUser.get()))
         .collect(Collectors.toList());
     }
+
+    @RequestMapping(value="/trainer/purchases", method=RequestMethod.POST, consumes="application/json")
+    public List<Purchase> getPurchases(@RequestBody Trainer request){
+      Optional<Trainer> foundTrainer = trainerService.login(request.getEmail(), request.getPassword());
+      if(!foundTrainer.isPresent()){
+        throw new RuntimeException("You are not logged in!");
+      }
+      return purchaseService.getAllPurchases()
+        .parallelStream()
+        .filter(p -> p.trainer != null)
+        .filter(p -> p.trainer.equals(foundTrainer.get()))
+        .collect(Collectors.toList());
+    }
+
 
     @RequestMapping(value="/purchases/create", method=RequestMethod.POST, consumes="application/json")
     public Purchase createPurchase(@RequestBody CreatePurchaseRequest request){

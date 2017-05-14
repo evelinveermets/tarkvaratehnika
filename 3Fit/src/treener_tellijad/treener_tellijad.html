@@ -7,6 +7,7 @@
         <link rel="stylesheet" type="text/css"
           href="https://fonts.googleapis.com/css?family=Tangerine">
     <title>Personaalne toitumis- ja treeningkava veebist!</title>
+      <require from="../dateTimeFormat"></require>
     </head>
     <body>
     <div class="taust-ankeet">
@@ -19,8 +20,20 @@
         <li><a href="#/treener_tellijad">Tellijad</a></li>
         <li><a href="#/treener_sisselogimine" click.delegate="logout()">Logi välja</a></li>
         </ul><br>
-        Siia tuleb tellitud kavade ankeedid
-    
+      <table>
+      <tr>
+        <th class="meist">Nimi</th>
+        <th class="meist">Sünniaeg</th>
+        <th class="meist">Toode</th>
+        <th class="meist">Maksmise aeg</th>
+      </tr>
+        <tr repeat.for="p of purchases">
+          <td><a href="#/kysimustiku_vastused">${p.owner.firstname} ${p.owner.lastname}</a></td>
+          <td>${p.owner.birthday}</td>
+          <td>${p.product.title}</td>
+          <td>${p.paid_on | dateTimeFormat}</td>
+        </tr>
+      </table>
     </div>
     </div>
     </body>

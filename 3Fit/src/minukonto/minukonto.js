@@ -25,7 +25,7 @@ export class Minukonto {
   loadPurchases() {
     let client = new HttpClient();
     let user = LoginService.getCredentials();
-    client.fetch("http://localhost:8080/purchases", {
+    client.fetch("http://localhost:8080/user/purchases", {
       method: "POST",
       body: json(user)
     })

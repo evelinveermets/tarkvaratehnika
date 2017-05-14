@@ -3,6 +3,7 @@ package ttu.tteh.trainer;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class TrainerService {
@@ -18,6 +19,16 @@ public class TrainerService {
 		//user.setCar(new Car());
 		return trainerRepository.save(trainer);
 	}
+
+  public Optional<Trainer> login(String email, String password){
+    if(email == null || password == null){
+      throw new NullPointerException("You must specify an email and password");
+    }
+    return this.getAllTrainers().stream()
+      .filter(u -> email.equals(u.getEmail()))
+      .filter(u -> password.equals(u.getPassword()))
+      .findFirst();
+  }
 
 	public List<Trainer> getAllTrainers() {
 		return trainerRepository.findAll();

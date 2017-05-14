@@ -1,0 +1,31 @@
+<template>
+  <!doctype html>
+  <html>
+  <head>
+    <meta charset="UTF-8">
+    <link href="src/css/style.css" type="text/css" rel="stylesheet">
+  </head>
+  <body>
+  <div class="taust-ankeet">
+    <h1 class="pealkiri">Vastused</h1>
+    <form>
+      <table>
+        <tr repeat.for="q of questions">
+          <td align="right">${q.question}</td>
+        </tr>
+        <tr repeat.for="a of answers">
+          <td align="left">${q.answer}</td>
+        </tr>
+      </table>
+
+
+      <a href="#/treener_tellijad">Tagasi</a>
+    </form>
+
+
+  </div>
+  </body>
+
+  </html>
+</template>
+
