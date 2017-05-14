@@ -5,6 +5,7 @@
         <link href="src/css/style.css" type="text/css" rel="stylesheet">
         <link rel="stylesheet" type="text/css"
           href="https://fonts.googleapis.com/css?family=Tangerine">
+        <require from="../dateTimeFormat"></require>
     <title>Personaalne toitumis- ja treeningkava veebist!</title>
     </head>
     <body>
@@ -31,13 +32,11 @@
 
         <div repeat.for="p of purchases">
           <h4>
-            ${p.product.title}
-          </h4>
+            ${p.product.title}</h4>
           <div>
-            ${p.product.cost}€
-            <span style="float: right;">
-              Tellitud ${p.submitted_on}
-            </span>
+            <b>Maksumus</b> ${p.product.cost}€ <br>
+            <b>Tellitud</b> ${p.submitted_on | dateTimeFormat}<br>
+            <b>Treener</b> ${p.trainer.firstname} ${p.trainer.lastname}
           </div>
 
         </div>

@@ -17,7 +17,7 @@ export class Avaleht {
 
   logout(){
     LoginService.logout();
-    alert("Logged out");
+    alert("Olete edukalt välja logitud");
     this.router.navigateToRoute('home');
   }
 

@@ -1,7 +1,8 @@
 import {inject} from 'aurelia-framework';
 import {LoginService} from '../LoginService';
-import {TrainerService} from '../TrainerService'
 import {Router} from 'aurelia-router';
+import {HttpClient, json} from 'aurelia-fetch-client'
+
 
 @inject(Router)
 export class Treenerid {
@@ -10,23 +11,31 @@ export class Treenerid {
 
     constructor(router : Router) {
         this.router = router;
-    }
 
-  activate(){
-    let user = LoginService.getCredentials();
-    TrainerService.getAllTrainers(user.email, user.password)
-      .then(t => {
-        this.trainers = t;
-        console.log("Trainers loaded...",t);
-        return t;
-      })
-      .catch(e => console.warn(e));
-  }
+    }
+    activate() {
+      this.loadTrainers();
+    }
 
 
   logout(){
     LoginService.logout();
-    alert("Logged out");
+    alert("Olete edukalt välja logitud");
     this.router.navigateToRoute('home');
+  }
+
+  loadTrainers() {
+    let client = new HttpClient();
+    let user = LoginService.getCredentials();
+
+    client.fetch('http://localhost:8080/trainers',{
+      'method': "GET"
+    })
+      .then(response => response.json())
+      .then(data => {
+        this.trainers = data;
+        console.log("trainers",data);
+      })
+      .catch(error => console.error("Failed to load trainers' list", error))
   }
 }
