@@ -2,7 +2,9 @@ package ttu.tteh.purchase;
 
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import ttu.tteh.answer.Answer;
 import ttu.tteh.answer.AnswerService;
@@ -39,6 +41,18 @@ public class PurchaseController {
   }
 
 
+    @RequestMapping(value="/purchases", method=RequestMethod.POST, consumes="application/json")
+    public List<Purchase> getPurchases(@RequestBody User request){
+      Optional<User> foundUser = userService.login(request.getEmail(), request.getPassword());
+      if(!foundUser.isPresent()){
+        throw new RuntimeException("You are not logged in!");
+      }
+      return purchaseService.getAllPurchases()
+        .parallelStream()
+        .filter(p -> p.owner.equals(foundUser.get()))
+        .collect(Collectors.toList());
+    }
+
     @RequestMapping(value="/purchases/create", method=RequestMethod.POST, consumes="application/json")
     public Purchase createPurchase(@RequestBody CreatePurchaseRequest request){
       Optional<User> foundUser = userService.login(request.getEmail(), request.getPassword());
@@ -55,11 +69,11 @@ public class PurchaseController {
       purchase.setProduct(foundProduct);
       purchaseService.save(purchase);
 
-      for ( Integer questionID : request.getAnswers().keySet()) {
-        Question question = questionService.getQuestionById(questionID);
+      for (CreatePurchaseRequest.ShortAnswer q : request.getAnswers()) {
+        Question question = questionService.getQuestionById(q.getQuestionId());
         Answer answer = new Answer();
         answer.setPurchase(purchase);
-        answer.setAnswer(request.getAnswers().get(questionID));
+        answer.setAnswer(q.getAnswer());
         answer.setQuestion(question);
         purchase.getAnswers().add(answer);
         answerService.save(answer);

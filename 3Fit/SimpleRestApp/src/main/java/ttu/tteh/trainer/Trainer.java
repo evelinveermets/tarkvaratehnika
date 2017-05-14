@@ -24,12 +24,14 @@ public class Trainer {
     String lastname;
     String gender;
     String imageUrl;
-    // TODO: Description
+  @Column(length = 500)
+    String description;
     Date birthday;
 
     @JsonIgnore
     @OneToMany(mappedBy="trainer", cascade=CascadeType.ALL)
     List<Purchase> purchases;
+
   @Getter
     @Setter
     public class PublicTrainer {
@@ -38,15 +40,17 @@ public class Trainer {
       String gender;
       String imageUrl;
       long id;
-      // TODO: Description
+      String description;
     }
 
-    PublicTrainer asPublicTrainer(){
+    public PublicTrainer asPublicTrainer(){
       PublicTrainer p = new PublicTrainer();
       p.setFirstname(this.getFirstname());
       p.setLastname(this.getLastname());
       p.setGender(this.getGender());
       p.setId(this.getId());
+      p.setImageUrl(this.getImageUrl());
+      p.setDescription(this.getDescription());
       return p;
     }
 }

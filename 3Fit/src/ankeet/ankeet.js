@@ -5,6 +5,7 @@ export class Ankeet {
 
      questions = [];
      trainers = [];
+     selectedTrainer;
      product = {
        id: -1,
        title: "Kava",
@@ -31,7 +32,7 @@ export class Ankeet {
         .then(response => response.json())
         .then(data => {
           this.product = data;
-          console.log(data);
+          console.log("product", data);
         })
         .catch(error => console.error("Failed to load product data",e));
     }
@@ -47,25 +48,30 @@ export class Ankeet {
           .then(response => response.json())
           .then(data => {
               this.questions = data;
-            console.log(this.questions)
+              console.log("questions", this.questions)
           });
     }
     submitQuestions(event){
       console.log(this.form);
-      let data = {};
+      let data = [];
       for (let q of this.questions) {
-        data[q.id] = this.form[q.id];
+        data.push({
+          questionId: parseInt(q.id),
+          answer: this.form[q.id]
+        });
       }
       let client = new HttpClient();
       let user = LoginService.getCredentials();
 
+      console.log(this);
       let createPurchaseRequest = {
         answers: data,
         email: user.email,
         password: user.password,
-        trainerId: 1, //TODO: Actual selection
-        productId: this.productId
+        trainerId: parseInt(this.selectedTrainer),
+        productId: parseInt(this.productId)
       };
+      console.log(createPurchaseRequest);
 
       console.log(createPurchaseRequest);
       client.fetch('http://localhost:8080/purchases/create',{
@@ -74,6 +80,7 @@ export class Ankeet {
       })
         .then(response => response.json())
         .then(response => console.log(response))
+        .then(success => window.location.reload(true))
         .catch(error => console.error("Failed to submit purchase", error))
 
     }
@@ -87,8 +94,8 @@ export class Ankeet {
     })
       .then(response => response.json())
       .then(data => {
-        console.log(data);
         this.trainers = data;
+        console.log("trainers",data);
       })
       .catch(error => console.error("Failed to load trainers' list", error))
   }

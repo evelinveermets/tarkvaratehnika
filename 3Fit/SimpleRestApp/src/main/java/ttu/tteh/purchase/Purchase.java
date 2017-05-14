@@ -10,7 +10,7 @@ import ttu.tteh.trainer.Trainer;
 import ttu.tteh.user.User;
 
 import javax.persistence.*;
-import java.sql.Date;
+import java.util.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,13 +24,39 @@ public class Purchase {
     @ManyToOne
     public Product product;
 
-    // TODO: Important: Serialize user as only email
     @ManyToOne
     public User owner;
     @ManyToOne
     public Trainer trainer;
-    public Date submitted_on = new Date(new java.util.Date().getTime());
+    @Column(columnDefinition="DATETIME")
+    @Temporal(TemporalType.TIMESTAMP)
+    public Date submitted_on = new Date();
     public Date paid_on;
     @OneToMany(mappedBy="purchase", cascade=CascadeType.ALL)
     public List<Answer> answers = new ArrayList<>();
+    String purchasedItem;
+
+    @Getter
+    @Setter
+    class PublicPurchase {
+      long id;
+      Product product;
+      User.PublicUser owner;
+      Trainer.PublicTrainer trainer;
+      Date submitted_on;
+      Date paid_on;
+      List<Answer> answers;
+    }
+
+    public PublicPurchase asPublicPurchase(){
+      PublicPurchase pp = new PublicPurchase();
+      pp.setId(this.getId());
+      pp.setAnswers(this.getAnswers());
+      pp.setOwner(this.getOwner().asPublicuser());
+      pp.setPaid_on(this.getPaid_on());
+      pp.setSubmitted_on(this.getSubmitted_on());
+      pp.setProduct(this.getProduct());
+      pp.setTrainer(this.getTrainer().asPublicTrainer());
+      return pp;
+    }
 }

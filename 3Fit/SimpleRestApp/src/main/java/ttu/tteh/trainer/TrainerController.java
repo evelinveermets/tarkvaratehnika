@@ -2,6 +2,8 @@ package ttu.tteh.trainer;
 
 import org.springframework.web.bind.annotation.*;
 import ttu.tteh.requests.LoginRequest2;
+import ttu.tteh.user.UserService;
+
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -10,9 +12,13 @@ import java.util.stream.Collectors;
 public class TrainerController {
 	
 	private TrainerService trainerService;
+  private UserService userService;
 
-	public TrainerController(TrainerService trainerService) {
-		this.trainerService = trainerService;
+
+
+	public TrainerController(TrainerService trainerService, UserService userService) {
+	  this.trainerService = trainerService;
+    this.userService = userService;
 	}
 	
 

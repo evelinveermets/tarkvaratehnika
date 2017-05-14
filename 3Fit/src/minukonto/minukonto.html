@@ -26,6 +26,22 @@
         Kava koostamisel <input type="checkbox" name="olek" value="koostamisel" disabled><br><br>
         Kava edastatud <input type="checkbox" name="olek" value="edastatud" disabled><br><br>
         </div>
+      <div class="keskel">
+        <h2>Minu tellimused</h2>
+
+        <div repeat.for="p of purchases">
+          <h4>
+            ${p.product.title}
+          </h4>
+          <div>
+            ${p.product.cost}€
+            <span style="float: right;">
+              Tellitud ${p.submitted_on}
+            </span>
+          </div>
+
+        </div>
+      </div>
     
     </div>
     </div>

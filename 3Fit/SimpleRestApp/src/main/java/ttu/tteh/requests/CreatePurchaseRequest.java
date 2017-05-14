@@ -13,7 +13,14 @@ import java.util.List;
 @Getter
 @Setter
 public class CreatePurchaseRequest {
-    HashMap<Integer, String> answers;
+    @Getter
+    @Setter
+    public static class ShortAnswer {
+      long questionId;
+      String answer;
+    }
+
+    List<ShortAnswer> answers;
     long trainerId;
     long productId;
 

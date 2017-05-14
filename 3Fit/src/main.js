@@ -14,6 +14,7 @@ export function configure(aurelia) {
     .plugin('aurelia-bootstrapper')
     .feature('resources');
 
+
   if (environment.debug) {
     aurelia.use.developmentLogging();
   }

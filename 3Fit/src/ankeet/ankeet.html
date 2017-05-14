@@ -27,8 +27,8 @@
           <td align="right"> Valige omale nõustaja:</td>
           <td repeat.for="t of trainers">
             <div align="left">
-              <img src="${t.imageUrl}" width="20%" height="20%"><br>${t.firstname + ' ' + t.lastname}<br>
-              <input type="radio" name="treener" value="${t.firstname + ' ' + t.lastname}" class="chk"></div>
+              <img src.bind="t.imageUrl" width="20%" height="20%"><br>${t.firstname + ' ' + t.lastname}<br>
+              <input type="radio" checked.bind="$parent.selectedTrainer" name="treener" value="${t.id}" class="chk"></div>
           </td>
 
       </table>

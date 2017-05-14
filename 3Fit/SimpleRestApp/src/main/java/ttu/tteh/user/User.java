@@ -31,4 +31,22 @@ public class User {
   @OneToMany(mappedBy = "owner", cascade = CascadeType.ALL)
   List<Purchase> purchases;
 
+  @Getter
+  @Setter
+  public class PublicUser {
+    long id;
+    String firstname;
+    String lastname;
+    String gender;
+  }
+
+  public PublicUser asPublicuser(){
+    PublicUser pu = new PublicUser();
+    pu.setId(this.getId());
+    pu.setFirstname(this.getFirstname());
+    pu.setLastname(this.getLastname());
+    pu.setGender(this.getGender());
+    return pu;
+  }
 }
+

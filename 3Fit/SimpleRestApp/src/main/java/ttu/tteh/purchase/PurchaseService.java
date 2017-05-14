@@ -18,7 +18,7 @@ public class PurchaseService {
       return purchaseRepository.findOne(id);
     }
 
-    List<Purchase> getAllUsers() {
+    List<Purchase> getAllPurchases() {
         return purchaseRepository.findAll();
     }
 
