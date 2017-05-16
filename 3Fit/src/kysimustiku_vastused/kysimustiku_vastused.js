@@ -14,6 +14,8 @@ export class Kysimustiku_vastused {
   activate(){
     console.log("LOADED");
     this.loadPurchases();
+    //this.loadQuestions();
+    //this.loadAnswers();
   }
 
   logout(){

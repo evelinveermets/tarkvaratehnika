@@ -6,7 +6,7 @@
     <link href="src/css/style.css" type="text/css" rel="stylesheet">
   </head>
   <body>
-  <div class="taust-ankeet">
+  <div class="whitebackground">
     <h1 class="pealkiri">${product.title} tellimise ankeet</h1>
     <form id="nutritionform" submit.delegate="submitQuestions($event)">
       <table>
@@ -24,7 +24,7 @@
 
       <table>
         <tr>
-          <td align="right"> Valige omale nõustaja:</td>
+          <td align="left"> Valige omale nõustaja:</td>
           <td repeat.for="t of trainers">
             <div align="left">
               <img src.bind="t.imageUrl" width="20%" height="20%"><br>${t.firstname + ' ' + t.lastname}<br>
@@ -35,7 +35,7 @@
 
       <input type="submit" name="send_btn" value="Saada ära"><br><br>
 
-      <a href="#/hinnakiri">Loobu</a>
+      <a href="#/hinnakiri">Tagasi</a>
     </form>
 
 

@@ -82,7 +82,7 @@ export class Ankeet {
         .then(response => console.log(response))
         .then(success => window.location.reload(true))
         .catch(error => console.error("Failed to submit purchase", error))
-
+        alert("Tellimus esitatud!");
     }
 
   loadTrainers() {

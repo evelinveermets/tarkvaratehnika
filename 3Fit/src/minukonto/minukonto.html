@@ -21,16 +21,17 @@
         </ul>
      </div><br>
     <div>
+      <!--
         <div class="keskel">
         Küsimustik täidetud <input type="checkbox" name="olek" value="taidetud" checked disabled><br><br>
         Arve tasutud <input type="checkbox" name="olek" value="tasutud" disabled><br><br>
         Kava koostamisel <input type="checkbox" name="olek" value="koostamisel" disabled><br><br>
         Kava edastatud <input type="checkbox" name="olek" value="edastatud" disabled><br><br>
-        </div>
-      <div class="keskel">
-        <h2>Minu tellimused</h2>
+        </div>-->
+      <div class="whitebackground">
+        <h2>Minu tellimused</h2><br>
 
-        <div repeat.for="p of purchases">
+        <div class="keskel" repeat.for="p of purchases">
           <h4>
             ${p.product.title}</h4>
           <div>

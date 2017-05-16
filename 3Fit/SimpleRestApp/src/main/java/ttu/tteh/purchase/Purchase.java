@@ -31,9 +31,7 @@ public class Purchase {
     @Column(columnDefinition="DATETIME")
     @Temporal(TemporalType.TIMESTAMP)
     public Date submitted_on = new Date();
-    @Column(columnDefinition="DATETIME")
-    @Temporal(TemporalType.TIMESTAMP)
-    public Date paid_on = new Date();
+    public Date paid_on;
     @OneToMany(mappedBy="purchase", cascade=CascadeType.ALL)
     public List<Answer> answers = new ArrayList<>();
     String purchasedItem;
