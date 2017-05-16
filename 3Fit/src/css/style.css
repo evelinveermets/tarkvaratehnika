@@ -34,7 +34,7 @@ a:active {
     text-shadow: -1px 0 gray, 0 1px gray, 1px 0 gray, 0 -1px gray, 1px 1px 2px black;
     color: #88cc14;
     font-family: 'Tangerine', serif;
-    font-size: 40px;
+    font-size: 60px;
 }
 
 table {
@@ -94,9 +94,11 @@ th{
     
 }
 
-.taust-ankeet {
 
+.taust-ankeet {
+   margin: 0 auto;
 }
+
 img{
     width: 300px;
     height:200px
@@ -120,7 +122,6 @@ li a {
     color: white;
     text-align: center;
     text-decoration: none;
-    font-size: 20px;
     padding-right: 40px;
     padding-left: 70px;
     font-family: 'Tangerine', serif;
