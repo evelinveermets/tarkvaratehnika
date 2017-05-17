@@ -1,0 +1,208 @@
+{
+	"variables": [],
+	"info": {
+		"name": "LyTempel",
+		"_postman_id": "5d00da51-6001-f4a8-da26-478577e479cb",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Add user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var response = JSON.parse(responseBody);",
+							"var req = JSON.parse(request.data);",
+							"tests[\"has_correct_email\"] = req.email == response.email;",
+							"tests[\"has_correct_firstname\"] = req.firstname == response.firstname;",
+							"",
+							"",
+							"console.log(postman.getResponseHeader(\"Content-Type\"))",
+							"tests[\"Content-Type is json\"] = postman.getResponseHeader(\"Content-Type\").has(\"application/json\");"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "{{BASE_URL}}/users/add",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\": \"{{USER_EMAIL}}\",\n\t\"password\": \"{{USER_PASSWORD}}\",\n\t\"gender\": \"Female\",\n\t\"firstname\": \"Alice\",\n\t\"lastname\": \"Doe\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get products",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"tests[\"is valid json\"] = jsonData;",
+							"",
+							"console.log(postman.getResponseHeader(\"Content-Type\"))",
+							"tests[\"Content-Type is json\"] = postman.getResponseHeader(\"Content-Type\").has(\"application/json\");",
+							"tests[\"Reponse has at least one product\"] = jsonData.length >= 0",
+							"postman.setEnvironmentVariable(\"product_id\", jsonData[0].id);"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "{{BASE_URL}}/products",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\": \"{{USER_EMAIL}}\",\n\t\"password\": \"{{USER_PASSWORD}}\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "get Questions for product",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"tests[\"is valid json\"] = jsonData;",
+							"",
+							"console.log(postman.getResponseHeader(\"Content-Type\"))",
+							"tests[\"Content-Type is json\"] = postman.getResponseHeader(\"Content-Type\").has(\"application/json\");",
+							"tests[\"Reponse has at least one question\"] = jsonData.length >= 0",
+							"",
+							"postman.setEnvironmentVariable(\"questions\", JSON.stringify(jsonData));"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": " {{BASE_URL}}/questions",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\": \"{{USER_EMAIL}}\",\n\t\"password\": \"{{USER_PASSWORD}}\",\n\t\"productId\": {{product_id}}\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "GetTrainers",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"tests[\"is valid json\"] = jsonData;",
+							"",
+							"console.log(postman.getResponseHeader(\"Content-Type\"))",
+							"tests[\"Content-Type is json\"] = postman.getResponseHeader(\"Content-Type\").has(\"application/json\");",
+							"",
+							"tests[\"Reponse has at least one trainer\"] = jsonData.length >= 0",
+							"",
+							"postman.setEnvironmentVariable(\"trainer_id\", jsonData[0].id);"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "{{BASE_URL}}/trainers",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Create purchase",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"tests[\"is valid json\"] = jsonData;",
+							"",
+							"console.log(postman.getResponseHeader(\"Content-Type\"))",
+							"tests[\"Content-Type is json\"] = postman.getResponseHeader(\"Content-Type\").has(\"application/json\");",
+							"tests[\"Reponse has an id\"] = jsonData.hasOwnProperty(\"id\")"
+						]
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"let answers = [];",
+							"",
+							"var questions = JSON.parse(postman.getEnvironmentVariable(\"questions\"))",
+							"for(let q of questions){",
+							"    answers.push({",
+							"        questionId: q.id,",
+							"        answer: \"This is an answer to the question: \"+q.question",
+							"    })",
+							"}",
+							"postman.setEnvironmentVariable(\"answers\", JSON.stringify(answers));"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "{{BASE_URL}}/purchases/create",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\": \"{{USER_EMAIL}}\",\n\t\"password\": \"{{USER_PASSWORD}}\",\n\t\"productId\": {{product_id}},\n\t\"trainerId\": {{trainer_id}},\n\t\"answers\": {{answers}}\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
