@@ -23,12 +23,8 @@ public class TrainerController {
 	
 
 	@RequestMapping(value="/login2", method=RequestMethod.POST, consumes = "application/json")
-	public Trainer login2(@RequestBody LoginRequest2 request){
-		Optional<Trainer> foundTrainer = trainerService.getAllTrainers().stream()
-        .filter(t -> t.getEmail() != null) // Sanity checks to avoid NPE - ignore users with NULL fields
-        .filter(t -> t.getPassword() != null)
-				.filter(t -> t.getEmail().equals(request.getEmail()))
-				.findFirst();
+	public Trainer login(@RequestBody LoginRequest2 request){
+    Optional<Trainer> foundTrainer = trainerService.login(request.getEmail(), request.getPassword());
 		if(!foundTrainer.isPresent()){
 			throw new RuntimeException("Incorrect email or password");
 		} else if(!foundTrainer.get().getPassword().equals(request.getPassword())) {

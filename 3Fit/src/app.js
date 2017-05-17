@@ -22,8 +22,8 @@ export class App {
           { route: 'treener_tellijad', name: 'treener_tellijad', moduleId: 'treener_tellijad/treener_tellijad',   nav: true },
           { route: 'treener_sisselogimine', name: 'treener_sisselogimine', moduleId: 'treener_sisselogimine/treener_sisselogimine',   nav: true },
           { route: 'ankeet/:productId', name: 'ankeet', moduleId: 'ankeet/ankeet'},
-          { route: 'kysimustiku_vastused', name: 'kysimustiku_vastused', moduleId: 'kysimustiku_vastused/kysimustiku_vastused',   nav: true },
-          { route: 'galerii', name: 'galerii', moduleId: 'galerii/galerii',   nav: true }
+          { route: 'galerii', name: 'galerii', moduleId: 'galerii/galerii',   nav: true },
+          { route: 'kysimustiku_vastused/:id', name: 'kysimustiku_vastused', moduleId: 'kysimustiku_vastused/kysimustiku_vastused'}
         ]);
   }
     

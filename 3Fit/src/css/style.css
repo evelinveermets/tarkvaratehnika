@@ -95,7 +95,7 @@ th{
 }
 
 .taust-ankeet {
-   margin: 0 auto;
+    margin: 0 auto;
 }
 img{
     width: 300px;
@@ -121,7 +121,7 @@ li a {
     text-align: center;
     text-decoration: none;
     padding-right: 40px;
-    padding-left: 70px;
+    padding-left: 60px;
     font-family: 'Tangerine', serif;
     font-size: 30px;
 }
@@ -131,8 +131,10 @@ li a:hover {
 }
 
 .keskel {
+    margin-left: 30px;
     text-align: left;
-    margin-left: 270px;
+    max-width: 800px;
+;
 }
 
 .unustasidparooli {
@@ -145,7 +147,7 @@ li a:hover {
 .treener1{
     margin-left: 190px;
     width: 1000px;
-    height: 1000px;
+    height: 300px;
     padding: 20px;
     background-color: white;
     opacity: 0.9;
@@ -160,9 +162,13 @@ li a:hover {
 .whitebackground {
   margin: 0 auto;
   width: 900px;
-  min-height: 460px;
+  min-height: 455px;
   height: auto;
   padding: 20px;
   background-color: white;
   opacity: 0.9;
+}
+
+.treeneri_menyy {
+
 }

@@ -2,6 +2,8 @@ package ttu.tteh.purchase;
 
 import com.fasterxml.jackson.annotation.JsonFilter;
 
+import org.springframework.beans.BeanUtils;
+
 import lombok.Getter;
 import lombok.Setter;
 import ttu.tteh.answer.Answer;
@@ -21,17 +23,22 @@ public class Purchase {
     @Id
     @GeneratedValue
     long id;
+
     @ManyToOne
     public Product product;
 
     @ManyToOne
     public User owner;
+
     @ManyToOne
     public Trainer trainer;
-    @Column(columnDefinition="DATETIME")
-    @Temporal(TemporalType.TIMESTAMP)
+
+    @Column(columnDefinition="DATETIME") @Temporal(TemporalType.TIMESTAMP)
     public Date submitted_on = new Date();
+
+    @Column(columnDefinition="DATETIME") @Temporal(TemporalType.TIMESTAMP)
     public Date paid_on;
+
     @OneToMany(mappedBy="purchase", cascade=CascadeType.ALL)
     public List<Answer> answers = new ArrayList<>();
     String purchasedItem;
@@ -50,12 +57,8 @@ public class Purchase {
 
     public PublicPurchase asPublicPurchase(){
       PublicPurchase pp = new PublicPurchase();
-      pp.setId(this.getId());
-      pp.setAnswers(this.getAnswers());
+      BeanUtils.copyProperties(this, pp);
       pp.setOwner(this.getOwner().asPublicuser());
-      pp.setPaid_on(this.getPaid_on());
-      pp.setSubmitted_on(this.getSubmitted_on());
-      pp.setProduct(this.getProduct());
       pp.setTrainer(this.getTrainer().asPublicTrainer());
       return pp;
     }

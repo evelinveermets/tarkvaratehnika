@@ -2,18 +2,22 @@ import {inject} from 'aurelia-framework';
 import {TrainerLoginService} from '../TrainerLoginService';
 import {Router} from 'aurelia-router';
 import {HttpClient, json} from 'aurelia-fetch-client'
+import {PurchaseService} from '../PurchaseService';
 
 @inject(Router)
 export class Kysimustiku_vastused {
   router;
-  purchases = [];
+  purchase;
+  purchaseId;
   constructor(router : Router) {
     this.router = router;
   }
 
-  activate(){
+  activate(params){
+    console.log(params);
+    this.purchaseId = params.id;
     console.log("LOADED");
-    this.loadPurchases();
+    this.loadAnswers();
     //this.loadQuestions();
     //this.loadAnswers();
   }
@@ -24,33 +28,32 @@ export class Kysimustiku_vastused {
     this.router.navigateToRoute('home');
   }
 
-  loadPurchases() {
-    let client = new HttpClient();
-    let trainer = TrainerLoginService.getCredentials();
-    client.fetch("http://localhost:8080/trainer/purchases", {
-      method: "POST",
-      body: json({email: trainer.email, password: trainer.password})
-    })
-      .then(data => data.json())
-      .then(p => {
-        console.log(p);
-        return this.purchases = p;
-      })
-      .catch(e => console.error(e));
-  }
-
-  loadQuestions(){
+  loadAnswers(){
     let client = new HttpClient();
     let trainer = TrainerLoginService.getCredentials();
 
-    client.fetch('http://localhost:8080/questions',{
+    client.fetch('http://localhost:8080/purchases/'+this.purchaseId,{
       'method': "POST",
-      'body': json({email: user.email, password: user.password, productId: this.productId})
+      'body': json({email: trainer.email, password: trainer.password})
     })
       .then(response => response.json())
       .then(data => {
-        this.questions = data;
-        console.log("questions", this.questions)
+        this.purchase = data;
+        console.log("questions", this.purchase)
       });
+  }
+
+  submit(purchase, item){
+    let trainer = TrainerLoginService.getCredentials();
+    PurchaseService.submitPurchase(trainer.email, trainer.password, this.purchase.id, item)
+      .then(response => {
+        this.purchases = this.purchases.filter(p => p !== purchase);
+        this.purchases.push(response);
+        return response;
+      })
+      .then(response => console.log("Purchase responded to", response))
+      .then(response => this.loadPurchases())
+      .catch(console.error);
+    alert("Kava kliendile edastatud")
   }
 }

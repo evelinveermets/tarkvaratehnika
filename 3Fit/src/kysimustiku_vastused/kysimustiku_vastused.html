@@ -7,22 +7,27 @@
   </head>
   <body>
   <div class="taust-ankeet">
-    <h1 class="pealkiri">Vastused</h1>
+    <div class="whitebackground">
+    <h1 class="pealkiri">Vastused</h1><br>
     <form>
       <table>
-        <tr repeat.for="q of questions">
-          <td align="right">${q.question}</td>
+        <tr repeat.for="a of purchase.answers">
+          <td align="right">${a.question.question}</td>
+          <td align="left">${a.answer}</td>
         </tr>
-        <tr repeat.for="a of answers">
-          <td align="left">${q.answer}</td>
+        <tr>
+          <td><input placeholder="Sisesta siia kava URL" type="text" if.bind="p.purchasedItem == null" value.bind="_item"/>
+            <button if.bind="p.purchasedItem == null" click.delegate="submit(p, _item)">
+              Saada kliendile kava</button></td><br><br>
         </tr>
+
       </table>
 
 
-      <a href="#/treener_tellijad">Tagasi</a>
+      <br><a href="#/treener_tellijad">Tagasi</a>
     </form>
 
-
+    </div>
   </div>
   </body>
 

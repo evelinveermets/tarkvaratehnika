@@ -2,10 +2,13 @@ package ttu.tteh.purchase;
 
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import lombok.Getter;
+import lombok.Setter;
 import ttu.tteh.answer.Answer;
 import ttu.tteh.answer.AnswerService;
 import ttu.tteh.product.Product;
@@ -24,12 +27,12 @@ import ttu.tteh.user.UserService;
 @RestController
 public class PurchaseController {
 
-  private PurchaseService purchaseService;
-  private UserService userService;
-  private final ProductService productService;
-  private TrainerService trainerService;
-  private final QuestionService questionService;
-  private AnswerService answerService;
+    private PurchaseService purchaseService;
+    private UserService userService;
+    private ProductService productService;
+    private TrainerService trainerService;
+    private QuestionService questionService;
+    private AnswerService answerService;
 
   public PurchaseController(PurchaseService purchaseService, UserService userService, ProductService productService, TrainerService trainerService, QuestionService questionService, AnswerService answerService) {
     this.purchaseService = purchaseService;
@@ -49,7 +52,6 @@ public class PurchaseController {
       }
       return purchaseService.getAllPurchases()
         .parallelStream()
-        .filter(p -> p.owner != null)
         .filter(p -> p.owner.equals(foundUser.get()))
         .collect(Collectors.toList());
     }
@@ -95,4 +97,40 @@ public class PurchaseController {
       }
       return purchase;
     }
+
+  @RequestMapping(value="/purchases/{id}", method=RequestMethod.POST, consumes="application/json")
+  public Purchase.PublicPurchase getPurchaseById(@RequestBody Trainer request, @PathVariable(name="id") long id){
+    Optional<Trainer> trainer = trainerService.login(request.getEmail(), request.getPassword());
+    if (!trainer.isPresent()) {
+      throw new RuntimeException("You are not logged in as a trainer!");
+    }
+    return purchaseService.getPurchaseById(id).asPublicPurchase();
+  }
+  @RequestMapping(value="/purchases/{id}/setpaid", method=RequestMethod.POST, consumes="application/json")
+  public Purchase.PublicPurchase setPaid(@RequestBody Trainer request, @PathVariable(name="id") long id){
+    Optional<Trainer> trainer = trainerService.login(request.getEmail(), request.getPassword());
+    if (!trainer.isPresent()) {
+      throw new RuntimeException("You are not logged in as a trainer!");
+    }
+    Purchase purchase = purchaseService.getPurchaseById(id);
+    purchaseService.setPaid(purchase);
+    return purchase.asPublicPurchase();
+  }
+
+  @Getter @Setter
+  static class FulfillPurchaseRequest {
+    String email; String password; String answer;
+  }
+
+
+  @RequestMapping(value="/purchases/{id}/fulfill", method=RequestMethod.POST, consumes="application/json")
+  public Purchase.PublicPurchase fulfill(@RequestBody FulfillPurchaseRequest request, @PathVariable(name="id") long id){
+    Optional<Trainer> trainer = trainerService.login(request.getEmail(), request.getPassword());
+    if (!trainer.isPresent()) {
+      throw new RuntimeException("You are not logged in as a trainer!");
+    }
+    Purchase purchase = purchaseService.getPurchaseById(id);
+    purchaseService.setResponse(purchase, request.getAnswer());
+    return purchase.asPublicPurchase();
+  }
 }

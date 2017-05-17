@@ -1,11 +1,13 @@
-<template><!doctype html>
+<template>
+  <require from="../dateTimeFormat"></require>
+
+  <!doctype html>
 <html>
     <head>
     <meta charset="UTF-8">
         <link href="src/css/style.css" type="text/css" rel="stylesheet">
         <link rel="stylesheet" type="text/css"
           href="https://fonts.googleapis.com/css?family=Tangerine">
-        <require from="../dateTimeFormat"></require>
     <title>Personaalne toitumis- ja treeningkava veebist!</title>
     </head>
     <body>
@@ -28,10 +30,16 @@
         <div class="keskel" repeat.for="p of purchases">
           <h4>
             ${p.product.title}</h4>
-          <div>
-            <b>Maksumus</b> ${p.product.cost}€ <br>
+          <div class>
             <b>Tellitud</b> ${p.submitted_on | dateTimeFormat}<br>
-            <b>Treener</b> ${p.trainer.firstname} ${p.trainer.lastname}<br><br>
+            <b>Maksumus</b> ${p.product.cost}€<br>
+            <b>Makstud</b>
+            <span if.bind="p.paid_on == null">Ei ole makstud</span>
+            <span if.bind="p.paid_on != null">${p.paid_on | dateTimeFormat}</span><br>
+            <b>Treener</b> ${p.trainer.firstname} ${p.trainer.lastname}<br>
+            <b>Link kavale</b>
+            <span if.bind="p.purchasedItem == null">kava ei ole valmis</span>
+            <span if.bind="p.purchasedItem != null"><a href="${p.purchasedItem}" target="_blank">${p.purchasedItem}</a></span><br><br>
           </div>
 
         </div>

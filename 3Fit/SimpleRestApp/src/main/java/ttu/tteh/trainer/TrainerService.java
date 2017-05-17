@@ -25,6 +25,8 @@ public class TrainerService {
       throw new NullPointerException("You must specify an email and password");
     }
     return this.getAllTrainers().stream()
+      .filter(t -> t.getEmail() != null) // Sanity checks to avoid NPE - ignore users with NULL fields
+      .filter(t -> t.getPassword() != null)
       .filter(u -> email.equals(u.getEmail()))
       .filter(u -> password.equals(u.getPassword()))
       .findFirst();
