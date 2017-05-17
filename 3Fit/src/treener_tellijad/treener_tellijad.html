@@ -25,6 +25,7 @@
         <th>Nimi</th>
         <th>Sünniaeg</th>
         <th>Toode</th>
+        <th>Esitamise aeg</th>
         <th>Maksmise aeg</th>
         <th>Kliendile kava esitatud?</th>
       </tr>
@@ -32,6 +33,7 @@
           <td><a click.delegate="openPurchase(p.id)"> ${p.owner.firstname} ${p.owner.lastname}</a></td>
           <td>${p.owner.birthday}</td>
           <td>${p.product.title}</td>
+          <td>${p.submitted_on | dateTimeFormat}</td>
           <td if.bind="p.paid_on == null">Ei ole makstud</td>
           <td if.bind="p.paid_on != null">${p.paid_on | dateTimeFormat}</td>
           <td if.bind="p.purchasedItem == null">Ei</td>

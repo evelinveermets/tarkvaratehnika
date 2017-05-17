@@ -22,11 +22,6 @@ export class Kysimustiku_vastused {
     //this.loadAnswers();
   }
 
-  logout(){
-    LoginService.logout();
-    alert("Olete edukalt välja logitud");
-    this.router.navigateToRoute('home');
-  }
 
   loadAnswers(){
     let client = new HttpClient();

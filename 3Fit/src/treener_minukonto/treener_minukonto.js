@@ -13,7 +13,7 @@ export class Treener_minukonto {
 
     logout(){
     TrainerLoginService.logout();
-    alert("Logged out");
+    alert("Olete edukalt välja logitud");
     this.router.navigateToRoute('treener_sisselogimine');
   }
     
