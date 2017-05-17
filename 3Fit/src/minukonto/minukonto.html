@@ -37,6 +37,7 @@
             <span if.bind="p.paid_on == null">Ei ole makstud</span>
             <span if.bind="p.paid_on != null">${p.paid_on | dateTimeFormat}</span><br>
             <b>Treener</b> ${p.trainer.firstname} ${p.trainer.lastname}<br>
+            <b>Treeneri e-maili aadress</b> ${p.trainer.email}<br>
             <b>Link kavale</b>
             <span if.bind="p.purchasedItem == null">kava ei ole valmis</span>
             <span if.bind="p.purchasedItem != null"><a href="${p.purchasedItem}" target="_blank">${p.purchasedItem}</a></span><br><br>
